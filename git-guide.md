@@ -8,7 +8,7 @@ git add .
 git commit -m '-message-'
 
 ## Push local changes to server
-git push
+git push --set-upstream origin -branchname-
 
 ## Initiate pull request on GitHub
 Go to GitHub and you should see a 'Compare and Pull Request' or click Pull request -> New pull request
