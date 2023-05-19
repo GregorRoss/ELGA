@@ -14,7 +14,7 @@ git push
 Go to GitHub and you should see a 'Compare and Pull Request' or click Pull request -> New pull request
 
 ## Select base and compare branches
-Base branch should be your branch and compare branch should be main
+Base branch should be main branch and compare branch should be your new feature/fix branch
 
 ## Write comments and assign users to PR
 You can write in a comment about the PR as well as assign specific users to complete the PR
