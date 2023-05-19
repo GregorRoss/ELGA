@@ -27,3 +27,6 @@ Make sure to delete the branch after the merge has been complete
 
 ## Checkout main branch
 git checkout main
+
+## Do a git pull
+git pull
