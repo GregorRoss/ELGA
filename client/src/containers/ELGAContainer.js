@@ -14,12 +14,15 @@ const ELGAContainer = () => {
       // All optional parameters available in the official documentation can be defined here as well.
     })
     .then(result => {
-        console.log(result.data);
+        const text = result.data.translations[0].text;
+        console.log(text);
     })
     .catch(error => {
         console.error(error)
     });
 };
+
+  // fetchData('Hello, World', 'ES');
 
   return (  
     <Router>
