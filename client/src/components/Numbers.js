@@ -3,6 +3,7 @@ import NumbersGame from './NumbersGame';
 
 
 
+
 const Numbers = () => {
 
         let rounds = 3;
@@ -14,6 +15,7 @@ const Numbers = () => {
 
     return (  
         <>
+
             <h1>Numbers</h1>
             <p>Numbers Options</p>
 
@@ -22,7 +24,7 @@ const Numbers = () => {
             <p>try again result</p>
             <p>round result</p>
         <NumbersGame />
-        <button>Play</button>
+       
 
         </>
     );

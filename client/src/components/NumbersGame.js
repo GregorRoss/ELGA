@@ -3,30 +3,48 @@ import { useState } from 'react';
 
 
 const NumbersGame = () => {
-    let rounds = 3;
+    let roundMax = 3;
     let level = 10;
     let operator = "add";
     let apiNum1 = "Tres";
     let apiNum2 = "Tres";
-    let num1 = 3;
-    let num2 = 3;
     let resultNumber = 0;
-    let calcResult = false;
+    let playGame = false;
+    let TheResponse = "blank";
 
     const [numberInput, setNumberInput] = useState(0);
-
-
-
-
-const calcNumber = () => {
+    const [num1, setNumber1] = useState(0);
+    const [num2, setNumber2] = useState(0);
+    const [roundCount, setRoundCount] = useState(0);
+    
+    
+    const calcNumber = () => {
     resultNumber =(num1+num2);
     console.log(resultNumber);
-    if (resultNumber === numberInput ) {
-        calcResult = true;
-        console.log(calcResult);
+    if (resultNumber == numberInput ) {
+        TheResponse = "you got it right";
+        console.log(TheResponse);
     } else {
-        calcResult = false;
-        console.log(calcResult);
+        TheResponse = "you idiot!";
+        console.log(TheResponse);
+    }
+}
+
+const getRandomNumbers=() => {
+    let newNum1 = parseInt((Math.random()*10)+1);
+    setNumber1(newNum1)
+    console.log(num1);
+    let newNum2 = parseInt((Math.random()*10)+1);
+    setNumber2(newNum2)
+    console.log(num2);
+}
+
+const playRound = () => {
+    if (roundCount != roundMax){
+        setRoundCount(roundCount + 1)
+        getRandomNumbers()
+    } else {
+        playGame = false;
     }
 }
 
@@ -48,9 +66,10 @@ const handleClick = () => {
         <p>this is number1: {num1}</p>
         <p>this is number2: {num2}</p>
         <p>this is the actual result {resultNumber}</p>
-        <p>the calcResult is then {calcResult}</p>
+        <p>the The Calc response is then:  {TheResponse}</p>
         <p>this is the number that you input {numberInput}</p>
-
+        <button onClick={playRound}>Play</button>
+        <p>this is the roundCount:  {roundCount} of {roundMax}</p>
         </>
 
       );
