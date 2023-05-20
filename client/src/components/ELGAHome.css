@@ -1,0 +1,49 @@
+body {
+    background-color: aqua;
+    color: white;
+}
+
+#welcome-egg {
+    width: 154px;
+}
+
+.hidden {
+    opacity: 0;
+}
+
+.show {
+    opacity: 1;
+}
+
+.animate {
+	-webkit-animation:animate 1.5s cubic-bezier(0.2, 0.6, 0.2, 1);
+	-moz-animation:animate 1.5s cubic-bezier(0.2, 0.6, 0.2, 1);
+	animation:animate 1.5s cubic-bezier(0.2, 0.6, 0.2, 1);
+	-webkit-animation-fill-mode:forwards;
+	-moz-animation-fill-mode:forwards;
+	animation-fill-mode:forwards;
+}
+
+
+@-webkit-keyframes animate {
+	0% {opacity: 0;-webkit-transform: translateX(100%);}
+	100% {opacity: 1;-webkit-transform: translateX(0%);}	
+}
+
+@keyframes animate {
+	0% {opacity: 0;transform: translateX(100vw);}
+	100% {opacity: 1;transform: translateX(0%);}	
+}
+
+.delay-2s {
+    animation-delay: 2s;
+}
+
+.title {
+    font-family: "Rubik Puddles";
+    font-size: 4rem;
+}
+
+@media (min-width: 768px) {
+
+}
