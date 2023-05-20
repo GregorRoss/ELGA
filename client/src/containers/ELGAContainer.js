@@ -1,6 +1,10 @@
 import React from 'react';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import ELGAHome from '../components/ELGAHome';
+import Numbers from '../components/Numbers';
+import Phrases from '../components/Phrases';
+import Images from '../components/Images';
+
 const translate = require('deepl');
 
 const ELGAContainer = () => {
@@ -28,6 +32,9 @@ const ELGAContainer = () => {
     <Router>
       <Routes>
         <Route path='/' element={<ELGAHome />} />
+        <Route path='/numbers' element={<Numbers />} />
+        <Route path='/images' element={<Images />} />
+        <Route path='/phrases' element={<Phrases />} />
       </Routes>
     </Router>
   );
