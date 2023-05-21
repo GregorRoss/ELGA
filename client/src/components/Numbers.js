@@ -1,5 +1,6 @@
 import React from 'react';
 import NumbersGame from './NumbersGame';
+import NumbersGuess from './NumbersGuess';
 
 
 
@@ -15,7 +16,7 @@ const Numbers = () => {
 
     return (  
         <>
-
+        <NumbersGuess />
             <h1>Numbers</h1>
             <p>Numbers Options</p>
 
