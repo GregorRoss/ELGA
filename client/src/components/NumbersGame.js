@@ -22,7 +22,7 @@ const NumbersGame = () => {
     
 
     
-    
+    // this function checks the guess and calls the required functions and sets the input back to empty
     const checkGuess = () => {
         setMsg(getMessage(numberInput,resultNumber));
         updateScore();
@@ -30,7 +30,7 @@ const NumbersGame = () => {
         setNumberInput("")
     };
     
-    
+   // this function checks the input and result then puts the correct message in state 
     function getMessage(numberInput, resultNumber) {
         const guessNo = Number(numberInput);
         const resultNo = num1 + num2;
@@ -39,6 +39,7 @@ const NumbersGame = () => {
         
     };
     
+    // function to update the score, this could be reset per game but left it running
     function updateScore() {
         const guessNo = Number(numberInput);
         const resultNo = num1 + num2;
@@ -49,6 +50,7 @@ const NumbersGame = () => {
         }
     }
     
+    // function that is called to get the next two random numbers depending on the Max level
     const getRandomNumbers=(max) => {
         let newNum1 = parseInt((Math.random()*max)+1);
         setNumber1(newNum1)
@@ -57,23 +59,27 @@ const NumbersGame = () => {
         setNumber2(newNum2)
         // console.log(num2);
     }
+
+    // functions that is supposed to set the result in state but not working properly
     const calcNumber = () => {
         let calcNum = num1 + num2;
         setResultNumber(calcNum);
     }
     
+    // function to play the round, and check it is not the end of the round.
     const playRound = () => {
         if (roundCount < roundMax){
             setRoundCount(roundCount + 1);
             setNumberInput("");
-            calcNumber();
             getRandomNumbers(level);
+            calcNumber();
     } else {
         setGameStatus("Game Over")
         setMsg("Game Over, round completed.")
     }
 }
 
+// function that does the initial start to the game
 const start = () => {
     getRandomNumbers(level);
     calcNumber();
