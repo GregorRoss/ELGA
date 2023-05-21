@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-import ELGAHome from '../components/ELGAHome';
+import ELGASplash from '../components/ELGASplash';
+import Home from '../components/Home.js'
 import Numbers from '../components/Numbers';
 import Phrases from '../components/Phrases';
 import Images from '../components/Images';
@@ -8,6 +9,7 @@ import NavBar from "../components/NavBar";
 import NumbersService from '../services/NumbersService';
 import ImagesService from '../services/ImagesService';
 import PhrasesService from '../services/PhrasesService';
+import "../components/ELGASplash.css"
 
 const translate = require('deepl');
 
@@ -16,6 +18,9 @@ const ELGAContainer = () => {
   const [numbers, setNumbers] = useState([]);
   const [images, setImages] = useState([]);
   const [phrases, setPhrases] = useState([]);
+  const [click, setClick] = useState(false);
+  const [clicked, setClicked] = useState(false);
+
 
   useEffect(() => {
     NumbersService.getNumbers()
@@ -45,13 +50,18 @@ const ELGAContainer = () => {
     });
 };
 
+const handleClick = () => setClick(!click);
+const handleHomeClick = () => setClicked(!clicked)
+
+
   // fetchData('Hello, World', 'ES');
 
   return (  
     <Router>
-      <NavBar />
+      <NavBar handleClick={handleClick} click={click} />
       <Routes>
-        <Route path='/' element={<ELGAHome />} />
+        <Route path='/' element={<ELGASplash handleHomeClick={handleHomeClick} clicked={clicked}/>} />
+        <Route path='/home' element={<Home />} />
         <Route path='/numbers' element={<Numbers />} />
         <Route path='/images' element={<Images />} />
         <Route path='/phrases' element={<Phrases />} />
