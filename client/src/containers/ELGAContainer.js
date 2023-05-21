@@ -1,14 +1,32 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import ELGAHome from '../components/ELGAHome';
 import Numbers from '../components/Numbers';
 import Phrases from '../components/Phrases';
 import Images from '../components/Images';
 import NavBar from "../components/NavBar";
+import NumbersService from '../services/NumbersService';
+import ImagesService from '../services/ImagesService';
+import PhrasesService from '../services/PhrasesService';
 
 const translate = require('deepl');
 
 const ELGAContainer = () => {
+
+  const [numbers, setNumbers] = useState([]);
+  const [images, setImages] = useState([]);
+  const [phrases, setPhrases] = useState([]);
+
+  useEffect(() => {
+    NumbersService.getNumbers()
+    .then(numbers => setNumbers(numbers));
+
+    ImagesService.getImages()
+    .then(images => setImages(images));
+
+    PhrasesService.getPhrases()
+    .then(phrases => setPhrases[phrases]);
+  }, []);
 
   const fetchData = (text, language) => {
     translate({
