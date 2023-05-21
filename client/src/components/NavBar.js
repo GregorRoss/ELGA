@@ -3,18 +3,17 @@ import {Link } from 'react-router-dom';
 import styled from "styled-components";
 
 const COLORS = {
-    primaryDark: "#115b4c",
-    primaryLight: "#B6EDC8",
+    primaryDark: "aqua",
+    primaryLight: "lightpink",
   };
   
   const MenuLabel = styled.label`
-    background-color: ${COLORS.primaryLight};
     position: fixed;
-    top: 6rem;
-    right: 6rem;
+    top: 1rem;
+    right: 2rem;
     border-radius: 50%;
-    height: 7rem;
-    width: 7rem;
+    height: 1rem;
+    width: 1rem;
     cursor: pointer;
     z-index: 1000;
     box-shadow: 0 1rem 3rem rgba(182, 237, 200, 0.3);
@@ -23,8 +22,8 @@ const COLORS = {
   
   const NavBackground = styled.div`
     position: fixed;
-    top: 6.5rem;
-    right: 6.5rem;
+    top: 0;
+    right: 0;
     background-image: radial-gradient(
       ${COLORS.primaryDark},
       ${COLORS.primaryLight}
@@ -33,48 +32,40 @@ const COLORS = {
     width: 6rem;
     border-radius: 50%;
     z-index: 600;
-    transform: ${(props) => (props.clicked ? "scale(80)" : "scale(0)")};
-    transition: transform 0.8s;
+    transform: ${(props) => (props.clicked ? "scale(100)" : "scale(0)")};
+    transition: transform 1s;
   `;
   
   const Icon = styled.span`
     position: relative;
-    background-color: ${(props) => (props.clicked ? "transparent" : "black")};
-    width: 3rem;
+    background-color: ${(props) => (props.clicked ? "transparent" : "white")};
+    width: 1.5rem;
     height: 2px;
     display: inline-block;
-    margin-top: 3.5rem;
-    transition: all 0.3s;
+    margin-top: 1.5rem;
+    transition: all 1s;
   
     &::before,
     &::after {
       content: "";
-      background-color: black;
-      width: 3rem;
+      background-color: white;
+      width: 1.5rem;
       height: 2px;
       display: inline-block;
   
       position: absolute;
       left: 0;
-      transition: all 0.3s;
+      transition: all 1s;
     }
   
     &::before {
-      top: ${(props) => (props.clicked ? "0" : "-0.8rem")};
+      top: ${(props) => (props.clicked ? "0" : "-0.5rem")};
       transform: ${(props) => (props.clicked ? "rotate(135deg)" : "rotate(0)")};
     }
   
     &::after {
-      top: ${(props) => (props.clicked ? "0" : "0.8rem")};
-  
+      top: ${(props) => (props.clicked ? "0" : "0.5rem")};
       transform: ${(props) => (props.clicked ? "rotate(-135deg)" : "rotate(0)")};
-    }
-  
-    ${MenuLabel}:hover &::before {
-      top: ${(props) => (props.clicked ? "0" : "-1rem")};
-    }
-    ${MenuLabel}:hover &::after {
-      top: ${(props) => (props.clicked ? "0" : "1rem")};
     }
   `;
   
@@ -87,10 +78,11 @@ const COLORS = {
     width: ${(props) => (props.clicked ? "100%" : "0")};
     opacity: ${(props) => (props.clicked ? "1" : "0")};
   
-    transition: width 0.8s, opacity 0.8s;
+    transition: width 1.5s, opacity 0.8s;
   `;
   
   const List = styled.ul`
+    padding: 0;
     position: absolute;
     list-style: none;
     top: 50%;
@@ -101,10 +93,10 @@ const COLORS = {
   `;
   const ItemLink = styled(Link)`
     display: inline-block;
-    font-size: 3rem;
-    font-weight: 300;
+    font-size: 2rem;
+    font-family: "Modak";
     text-decoration: none;
-    color: ${COLORS.primaryLight};
+    color: white;
     padding: 1rem 2rem;
   
     background-image: linear-gradient(
@@ -120,7 +112,6 @@ const COLORS = {
     &:active {
       background-position: 100%;
       color: ${COLORS.primaryDark};
-      transform: translateX(1rem);
     }
   `;
   
@@ -129,26 +120,26 @@ const NavBar = () => {
     const handleClick = () => setClick(!click);
     return(
         <>
-            <MenuLabel htmlFor='navi-toogle' onClick={handleClick}>
-                    <Icon clicked={click}>&nbsp;</Icon>
-                </MenuLabel>
-                <NavBackground clicked={click}>&nbsp;</NavBackground>
-                <Navigation onClick={handleClick} clicked={click}>
-                    <List>
-                        <li>
-                        <ItemLink onClick={handleClick} to="/">Home</ItemLink>
-                        </li>
-                        <li>
-                        <ItemLink onClick={handleClick} to="/numbers">Numbers Game</ItemLink>
-                        </li>
-                        <li>
-                        <ItemLink onClick={handleClick} to="/images">Images Game</ItemLink>
-                        </li>
-                        <li>
-                        <ItemLink onClick={handleClick} to="/phrases">Phrases Game</ItemLink>
-                        </li>
-                    </List>
-                </Navigation>
+          <MenuLabel htmlFor='navi-toogle' onClick={handleClick}>
+            <Icon clicked={click}>&nbsp;</Icon>
+          </MenuLabel>
+          <NavBackground clicked={click}>&nbsp;</NavBackground>
+          <Navigation onClick={handleClick} clicked={click}>
+            <List>
+                <li>
+                  <ItemLink onClick={handleClick} to="/">Home</ItemLink>
+                </li>
+                <li>
+                  <ItemLink onClick={handleClick} to="/numbers">Numbers</ItemLink>
+                </li>
+                <li>
+                  <ItemLink onClick={handleClick} to="/images">Images</ItemLink>
+                </li>
+                <li>
+                  <ItemLink onClick={handleClick} to="/phrases">Phrases</ItemLink>
+                </li>
+            </List>
+          </Navigation>
       </>
   )
 }
