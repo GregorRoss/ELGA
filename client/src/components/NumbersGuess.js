@@ -7,12 +7,14 @@ const [guess, setGuess] = useState("");
 const [rnd, setRnd] = useState(getRandom(100));
 const [msg, setMsg] = useState("");
 const [count, setCount] = useState(0);
+const [userAllGuesses, setUserAllGuesses] = useState([]);
 
 // this allows the page to rerender once the button is clicked to show the message.
 // increases the guess count when the guess button is clicked.
 const checkGuess = () => {
     setMsg(getMessage(guess,rnd));
     setCount((count) => count + 1);
+    setUserAllGuesses([...userAllGuesses, guess]);
     setGuess("")
 };
 
@@ -57,6 +59,17 @@ function getMessage(guess, rnd) {
                 )}
                 <p>{msg}</p>  
                 <div>No of guesses {count}</div>
+                <p>
+                    Your Guesses:
+                    {userAllGuesses.map((item, index) => {
+                        return (
+                            <span key={index}>
+                                {" "}
+                                {item}, {}
+                            </span>
+                        );
+                    })}
+                </p>
             </form>
         
         </div>
