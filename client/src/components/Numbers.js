@@ -18,12 +18,10 @@ const Numbers = () => {
         <>
         <NumbersGuess />
             <h1>Numbers</h1>
-            <p>Numbers Options</p>
+            <p>Numbers Options -- need to add the option variables here</p>
 
             <p>game</p>
-            <p>awesome result</p>
-            <p>try again result</p>
-            <p>round result</p>
+
         <NumbersGame />
        
 
