@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {Link } from 'react-router-dom';
 import styled from "styled-components";
 
@@ -12,8 +12,8 @@ const COLORS = {
     top: 1rem;
     right: 2rem;
     border-radius: 50%;
-    height: 1rem;
-    width: 1rem;
+    height: 2rem;
+    width: 2rem;
     cursor: pointer;
     z-index: 1000;
     box-shadow: 0 1rem 3rem rgba(182, 237, 200, 0.3);
@@ -115,9 +115,8 @@ const COLORS = {
     }
   `;
   
-const NavBar = () => {  
-    const [click, setClick] = useState(false);
-    const handleClick = () => setClick(!click);
+const NavBar = ({handleClick, click}) => {  
+
     return(
         <>
           <MenuLabel htmlFor='navi-toogle' onClick={handleClick}>
@@ -127,7 +126,7 @@ const NavBar = () => {
           <Navigation onClick={handleClick} clicked={click}>
             <List>
                 <li>
-                  <ItemLink onClick={handleClick} to="/">Home</ItemLink>
+                  <ItemLink onClick={handleClick} to="/home">Home</ItemLink>
                 </li>
                 <li>
                   <ItemLink onClick={handleClick} to="/numbers">Numbers</ItemLink>
