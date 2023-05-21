@@ -1,10 +1,47 @@
+/* target background to display gradient moving colours */
+
 body {
-    background-color: aqua;
     color: white;
+	animation: animateBg 10s linear 5s infinite;
+	background-image: linear-gradient(45deg, aqua, lightpink, aqua);
+	background-size: 100% 1100%;
+	height: 100vh;
+	width: 100vw;
+  }
+
+@keyframes animateBg {
+	0% { background-position: 0% 0%; }
+	100% { background-position: 100% 100%; }
 }
 
 #welcome-egg {
     width: 154px;
+}
+
+
+/* shadow property for any images */
+.shadow {
+	-webkit-box-shadow:0px 70px 15px -35px rgba(0,0,0,.25);
+	-moz-box-shadow:0px 70px 15px -35px rgba(0,0,0,.25);
+	box-shadow:0px 70px 15px -35px rgba(0,0,0,.25);
+	-webkit-border-radius:50%;
+	-moz-border-radius:50%;
+	border-radius: 50%;
+	transform:scaleY(.3);
+	-webkit-transform:scaleY(.3);
+	-moz-transform:scaleY(.3);
+	-ms-transform:scaleY(.3);
+	-o-transform:scaleY(.3);
+}
+
+/* bounce animation for any element */
+.bounce {
+	animation: bounce .5s cubic-bezier(.5, .6, .6, 1) infinite alternate;
+}
+
+@keyframes bounce {
+    0% {transform: translateY(0px);}
+    100% {transform: translateY(-30px);}
 }
 
 .hidden {
@@ -15,35 +52,62 @@ body {
     opacity: 1;
 }
 
-.animate {
-	-webkit-animation:animate 1.5s cubic-bezier(0.2, 0.6, 0.2, 1);
-	-moz-animation:animate 1.5s cubic-bezier(0.2, 0.6, 0.2, 1);
-	animation:animate 1.5s cubic-bezier(0.2, 0.6, 0.2, 1);
+.slide-in-left {
+	-webkit-animation:slide-in-left 3s ease-out;
+	-moz-animation:slide-in-left 3s ease-out;
+	animation:slide-in-left 3s ease-out;
 	-webkit-animation-fill-mode:forwards;
 	-moz-animation-fill-mode:forwards;
 	animation-fill-mode:forwards;
 }
 
 
-@-webkit-keyframes animate {
-	0% {opacity: 0;-webkit-transform: translateX(100%);}
-	100% {opacity: 1;-webkit-transform: translateX(0%);}	
+@-webkit-keyframes slide-in-left {
+	0% {-webkit-transform: translateX(100%);}
+	100% {-webkit-transform: translateX(0%);}	
 }
 
-@keyframes animate {
-	0% {opacity: 0;transform: translateX(100vw);}
-	100% {opacity: 1;transform: translateX(0%);}	
+@keyframes slide-in-left {
+	0% {transform: translateX(-100vw);}
+	100% {transform: translateX(0%);}	
 }
 
-.delay-2s {
-    animation-delay: 2s;
+.delay-1s {
+    animation-delay: 1s;
 }
 
 .title {
     font-family: "Rubik Puddles";
     font-size: 4rem;
+	text-shadow: 0px 10px 10px white;
+}
+
+.tap-indicator {
+	font-family: "Modak";
+	position: absolute;
+    bottom: 5%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+
+.pulse {
+	animation: pulse 1s linear 4s infinite alternate;
+}
+
+@keyframes pulse {
+  0% {font-size: 1rem;}
+  100% {font-size: 1.2rem;}
 }
 
 @media (min-width: 768px) {
 
+	.slide-in-left {
+		-webkit-animation:slide-in-left 5s ease-out;
+		-moz-animation:slide-in-left 5s ease-out;
+		animation:slide-in-left 5s ease-out;
+		-webkit-animation-fill-mode:forwards;
+		-moz-animation-fill-mode:forwards;
+		animation-fill-mode:forwards;
+	}
 }
