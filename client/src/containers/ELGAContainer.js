@@ -23,14 +23,14 @@ const ELGAContainer = () => {
 
 
   useEffect(() => {
-    NumbersService.getNumbers()
-    .then(numbers => setNumbers(numbers));
+    // NumbersService.getNumbers()
+    // .then(numbers => setNumbers(numbers));
 
-    ImagesService.getImages()
-    .then(images => setImages(images));
+    // ImagesService.getImages()
+    // .then(images => setImages(images));
 
-    PhrasesService.getPhrases()
-    .then(phrases => setPhrases[phrases]);
+    // PhrasesService.getPhrases()
+    // .then(phrases => setPhrases[phrases]);
   }, []);
 
   const fetchData = (text, language) => {
