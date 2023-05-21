@@ -4,6 +4,7 @@ import ELGAHome from '../components/ELGAHome';
 import Numbers from '../components/Numbers';
 import Phrases from '../components/Phrases';
 import Images from '../components/Images';
+import NavBar from "../components/NavBar";
 
 const translate = require('deepl');
 
@@ -30,6 +31,7 @@ const ELGAContainer = () => {
 
   return (  
     <Router>
+      <NavBar />
       <Routes>
         <Route path='/' element={<ELGAHome />} />
         <Route path='/numbers' element={<Numbers />} />
