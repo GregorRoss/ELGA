@@ -30,3 +30,6 @@ git checkout main
 
 ## Do a git pull
 git pull
+
+## Delete the 
+git branch -d styling/navbar 

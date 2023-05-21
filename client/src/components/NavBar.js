@@ -77,7 +77,7 @@ const COLORS = {
     z-index: 600;
     width: ${(props) => (props.clicked ? "100%" : "0")};
     opacity: ${(props) => (props.clicked ? "1" : "0")};
-  
+
     transition: width 1.5s, opacity 0.8s;
   `;
   
@@ -118,7 +118,7 @@ const COLORS = {
 const NavBar = ({handleClick, click}) => {  
 
     return(
-        <>
+        <div>
           <MenuLabel htmlFor='navi-toogle' onClick={handleClick}>
             <Icon clicked={click}>&nbsp;</Icon>
           </MenuLabel>
@@ -139,7 +139,7 @@ const NavBar = ({handleClick, click}) => {
                 </li>
             </List>
           </Navigation>
-      </>
+      </div>
   )
 }
  
