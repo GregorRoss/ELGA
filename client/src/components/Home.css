@@ -5,27 +5,78 @@
     align-items: center;
 }
 
+.games-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
 .home-title {
+    margin-bottom: 0;
     font-family: "Rubik Puddles";
+    text-shadow: 0 1vw 2vw black;
+    font-size: 7vw;
+}
+
+.home-title-EN {
+    margin-top: 0;
+    font-family: "Rubik Puddles";
+    text-shadow: 0 1vw 2vw black;
+    font-size: 4vw;
+}
+
+.game-card {
+    width: 25vw;
+    margin: 2vw 1vw;
+    background-color:skyblue;
+    box-shadow: 0 0 3vw white;
+    border-radius: 1vw;
+    padding: 1vw;
 }
 
 .game-title {
     font-family: "Modak";
-    font-size: 7.5vw;
-    margin-bottom: 0;
+    font-size: 6vw;
+    margin: 0;
+    text-shadow: 0 1vw 1vw black;
 }
 
-.game-image, .grow {
-    width: 30vw;
+.game-image {
+    width: 23vw;
+}
+
+.grow {
+    transition: transform .5s;
 }
 
 .grow:hover {
-    animation: grow 2s linear;
-}
+    -ms-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1); }
 
 @media (min-width: 768px) {
-    .home-container {
+    .games-container{
         flex-direction: row;
-        flex-wrap: wrap;
+    }
+
+    .home-title {
+        font-size: 5vw;
+    }
+
+    .home-title-EN {
+        font-size: 2.5vw;
+    }
+
+    .game-card {
+        width: 20vw;
+        margin: 2vw;
+    }
+
+    .game-title {
+        font-size: 4vw;
+    }
+
+    .game-image {
+        width: 20vw;
     }
 }
