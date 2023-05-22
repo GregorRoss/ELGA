@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 
 
-const NumbersGame = ({level, rounds}) => {
+const NumbersGame = ({level, rounds, num1, num2, setRandomNumbers}) => {
     let roundMax = rounds;
     let operator = "add";
     let apiNum1 = "Tres";
@@ -14,8 +14,7 @@ const NumbersGame = ({level, rounds}) => {
     const [resultNumber, setResultNumber] = useState(0)
     const [msg, setMsg] = useState("");
     const [numberInput, setNumberInput] = useState(null);
-    const [num1, setNumber1] = useState(0);
-    const [num2, setNumber2] = useState(0);
+
 
     const [roundCount, setRoundCount] = useState(0);
     
@@ -52,11 +51,9 @@ const NumbersGame = ({level, rounds}) => {
     // function that is called to get the next two random numbers depending on the Max level
     const getRandomNumbers=(max) => {
         let newNum1 = parseInt((Math.random()*max)+1);
-        setNumber1(newNum1)
-        // console.log(num1);
         let newNum2 = parseInt((Math.random()*max)+1);
-        setNumber2(newNum2)
-        // console.log(num2);
+        setRandomNumbers(newNum1, newNum2)
+
     }
 
     // functions that is supposed to set the result in state but not working properly

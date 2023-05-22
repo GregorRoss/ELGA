@@ -9,6 +9,7 @@ import NavBar from "../components/NavBar";
 import { getNumbers } from '../services/NumbersService';
 import { getPhrases } from '../services/PhrasesService';
 import "../components/ELGASplash.css"
+import NumbersGuess from '../components/NumbersGuess';
 
 const translate = require('deepl');
 
@@ -20,7 +21,8 @@ const ELGAContainer = () => {
   const [click, setClick] = useState(false);
   const [clicked, setClicked] = useState(false);
   const [translatedPhrases, setTranslatedPhrases] = useState([]);
-
+  const [num1, setNumber1] = useState(0);
+  const [num2, setNumber2] = useState(0);
 
   useEffect(() => {
     getNumbers()
@@ -53,6 +55,10 @@ const ELGAContainer = () => {
 const handleClick = () => setClick(!click);
 const handleHomeClick = () => setClicked(!clicked)
 
+const setRandomNumbers = (num1, num2) => {
+  setNumber1(num1);
+  setNumber2(num2);
+}
 
   // fetchData('Hello, World', 'ES');
 
@@ -62,7 +68,8 @@ const handleHomeClick = () => setClicked(!clicked)
       <Routes>
         <Route path='/' element={<ELGASplash handleHomeClick={handleHomeClick} clicked={clicked}/>} />
         <Route path='/home' element={<Home />} />
-        <Route path='/numbers' element={<Numbers />} />
+        <Route path='/numbers' element={<Numbers num1={num1} num2={num2} setRandomNumbers={setRandomNumbers}/>} />
+        <Route path='/numbersguess' element={<NumbersGuess />} />
         <Route path='/images' element={<Images />} />
         <Route path='/phrases' element={<Phrases />} />
       </Routes>
