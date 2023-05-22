@@ -16,6 +16,7 @@ const translate = require('deepl');
 
 const ELGAContainer = () => {
 
+  const [language, setLanguage] = useState('ES');
   const [numbers, setNumbers] = useState([]);
   const [images, setImages] = useState([]);
   const [phrases, setPhrases] = useState([]);
@@ -23,6 +24,7 @@ const ELGAContainer = () => {
   const [clicked, setClicked] = useState(false);
   const [num1, setNumber1] = useState(0);
   const [num2, setNumber2] = useState(0);
+  const [phrase, setPhrase] = useState('');
   const [translatedPhrase, setTranslatedPhrase] = useState('');
 
   useEffect(() => {
@@ -61,8 +63,10 @@ const setRandomNumbers = (num1, num2) => {
   setNumber2(num2);
 }
 
-const setRandomPhrase = (phrase) => {
-  setTranslatedPhrase(phrase)
+const setRandomPhrase = (phrase, language) => {
+  setPhrase(phrase);
+  fetchData(phrase, language);
+  setTranslatedPhrase(phrase);
 };
   // fetchData('Hello, World', 'ES');
 
@@ -75,7 +79,7 @@ const setRandomPhrase = (phrase) => {
         <Route path='/numbers' element={<Numbers num1={num1} num2={num2} setRandomNumbers={setRandomNumbers}/>} />
         <Route path='/numbersguess' element={<NumbersGuess />} />
         <Route path='/images' element={<Images />} />
-        {phrases.length > 0 ? <Route path='/phrases' element={<Phrases phrases={phrases} setRandomPhrase={setRandomPhrase}  translatedPhrase={translatedPhrase} />} /> : null}
+        {phrases.length > 0 ? <Route path='/phrases' element={<Phrases phrases={phrases} setRandomPhrase={setRandomPhrase}  phrase={phrase} translatedPhrase={translatedPhrase} language={language} />} /> : null}
       </Routes>
     </Router>
   );
