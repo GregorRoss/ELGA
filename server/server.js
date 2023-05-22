@@ -13,10 +13,13 @@ MongoClient.connect('mongodb://127.0.0.1:27017', { useUnifiedTopology: true })
     const db = client.db('elga');
     const numbersCollections = db.collection('numbers');
     const phrasesCollection = db.collection('phrases');
+    const imagesCollection = db.collection('images');
     const numbersRouter = createRouter(numbersCollections);
     const phrasesRouter = createRouter(phrasesCollection);
+    const imagesRouter = createRouter(imagesCollection);
     app.use('/api/numbers', numbersRouter);
     app.use('/api/phrases', phrasesRouter);
+    app.use('/api/images', imagesRouter);
   })
   .catch(console.err);
 

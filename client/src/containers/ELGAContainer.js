@@ -8,6 +8,7 @@ import Images from '../components/Images';
 import NavBar from "../components/NavBar";
 import { getNumbers } from '../services/NumbersService';
 import { getPhrases } from '../services/PhrasesService';
+import { getImages } from '../services/ImagesService';
 import "../components/ELGASplash.css"
 import NumbersGuess from '../components/NumbersGuess';
 
@@ -28,8 +29,8 @@ const ELGAContainer = () => {
     getNumbers()
     .then(numbers => setNumbers(numbers));
 
-    // ImagesService.getImages()
-    // .then(images => setImages(images));
+    getImages()
+    .then(images => setImages(images));
 
     getPhrases()
     .then(phrases => setPhrases[phrases]);
