@@ -21,9 +21,9 @@ const ELGAContainer = () => {
   const [phrases, setPhrases] = useState([]);
   const [click, setClick] = useState(false);
   const [clicked, setClicked] = useState(false);
-  const [translatedPhrases, setTranslatedPhrases] = useState([]);
   const [num1, setNumber1] = useState(0);
   const [num2, setNumber2] = useState(0);
+  const [translatedPhrase, setTranslatedPhrase] = useState('');
 
   useEffect(() => {
     getNumbers()
@@ -33,7 +33,7 @@ const ELGAContainer = () => {
     .then(images => setImages(images));
 
     getPhrases()
-    .then(phrases => setPhrases[phrases]);
+    .then(phrases => setPhrases(phrases));
   }, []);
 
   const fetchData = (text, language) => {
@@ -61,6 +61,9 @@ const setRandomNumbers = (num1, num2) => {
   setNumber2(num2);
 }
 
+const setRandomPhrase = (phrase) => {
+  setTranslatedPhrase(phrase)
+};
   // fetchData('Hello, World', 'ES');
 
   return (  
@@ -72,7 +75,7 @@ const setRandomNumbers = (num1, num2) => {
         <Route path='/numbers' element={<Numbers num1={num1} num2={num2} setRandomNumbers={setRandomNumbers}/>} />
         <Route path='/numbersguess' element={<NumbersGuess />} />
         <Route path='/images' element={<Images />} />
-        <Route path='/phrases' element={<Phrases />} />
+        {phrases.length > 0 ? <Route path='/phrases' element={<Phrases phrases={phrases} setRandomPhrase={setRandomPhrase}  translatedPhrase={translatedPhrase} />} /> : null}
       </Routes>
     </Router>
   );

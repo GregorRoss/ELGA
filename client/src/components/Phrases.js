@@ -1,8 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Phrases.css";
 import SubmitButton from "./SubmitButton";
 
-const Phrases = () => {
+const Phrases = ({phrases, setRandomPhrase, translatedPhrase}) => {
+
+  useEffect(() => {
+    getRandomIndex();
+  },[]);
+
+  const [input, setInput] = useState('');
+
+  const getRandomIndex = () => {
+    const randomIndex = Math.floor(Math.random() * phrases.length);
+    setRandomPhrase(phrases[randomIndex].phrase);
+  };
+
   return (
     <>
       <div className="title-container">
@@ -20,7 +32,7 @@ const Phrases = () => {
         </h2>
       </div>
       <div className="question-container">
-        <p className="question-text">"Hello"</p>
+        <p className="question-text">{translatedPhrase}</p>
         <form className="question-form">
 
           <input
@@ -30,13 +42,18 @@ const Phrases = () => {
             id="nme"
             required
             autoComplete="off"
+            onChange={(e) => setInput(e.target.value)}
           />
     <label htmlFor="nme">
       <span></span>
           </label>
             <SubmitButton
               onClick={() => {
-                console.log("submit");
+                if (input === translatedPhrase) {
+                  console.log('You got it right!');
+                } else {
+                  console.log("That's not right!")
+                }
               }}
             />
 
