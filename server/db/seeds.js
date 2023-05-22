@@ -36,5 +36,28 @@ db.numbers.insertMany([
         number: 11,
         word: "eleven"
     }
-
 ]);
+
+db.phrases.insertMany([
+  {
+    phrase: "Hello"
+  },
+  {
+    phrase: "Thank you"
+  },
+  {
+    phrase: "How are you?"
+  },
+  {
+    phrase: "Goodbye"
+  },
+  {
+    phrase: "Where is the library?"
+  },
+  {
+    phrase: "What is your name?"
+  },
+  {
+    phrase: "My name is"
+  }
+])
