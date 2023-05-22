@@ -42,7 +42,7 @@ const ELGAContainer = () => {
     .then(images => setImages(images));
 
     getPhrases()
-    .then(phrases => setPhrases[phrases]);
+    .then(phrases => setPhrases(phrases));
   }, []);
 
   useEffect(() => {

@@ -5,7 +5,7 @@ import SubmitButton from "./SubmitButton";
 const Phrases = ({phrases, setRandomPhrase, phrase, translatedPhrase, language}) => {
 
   useEffect(() => {
-    // getRandomIndex();g
+    getRandomIndex()
   },[]);
 
   const [input, setInput] = useState('');
