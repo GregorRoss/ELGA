@@ -65,8 +65,10 @@ const NumbersGame = ({level, rounds, num1, num2, num1Word, num2Word, setRandomNu
     const playRound = () => {
         if (roundCount < roundMax){
             setRoundCount(roundCount + 1);
-            setNumberInput("");
+            console.log("num before state change", num1);
             getRandomNumbers(level);
+            console.log("num after state change", num1);
+            setNumberInput("");
             calcNumber();
     } else {
         setGameStatus("Game Over")
@@ -76,11 +78,9 @@ const NumbersGame = ({level, rounds, num1, num2, num1Word, num2Word, setRandomNu
 
 // function that does the initial start to the game
 const start = () => {
-    console.log("num before state change", num1);
-
+    setRoundCount(0);
     setGameStatus("playing");
     playRound();
-    console.log("num after state change", num1);
 
 
 
