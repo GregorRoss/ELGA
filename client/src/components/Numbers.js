@@ -5,7 +5,7 @@ import NumbersGuess from './NumbersGuess';
 
 
 
-const Numbers = () => {
+const Numbers = ({num1, num2, setRandomNumbers}) => {
 
         let operator = "add"
     const [rounds, setRounds] = useState();
@@ -21,8 +21,7 @@ const Numbers = () => {
 
     return (  
         <>
-        <NumbersGuess />
-            <h1>Numbers</h1>
+            <h1>Number Maths</h1>
             <p>Numbers Options -- need to add the option variables here</p>
             <div className='numbers-round-options'>
                 <select onChange={handleRoundSelect}>
@@ -52,7 +51,7 @@ const Numbers = () => {
             </div>
             <p>game</p>
 
-        <NumbersGame level={level} rounds={rounds}/>
+            <NumbersGame level={level} rounds={rounds} num1={num1} num2={num2} setRandomNumbers={setRandomNumbers}/>
        
 
         </>

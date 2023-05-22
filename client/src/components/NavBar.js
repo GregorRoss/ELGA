@@ -129,7 +129,10 @@ const NavBar = ({handleClick, click}) => {
                   <ItemLink onClick={handleClick} to="/home">Home</ItemLink>
                 </li>
                 <li>
-                  <ItemLink onClick={handleClick} to="/numbers">Numbers</ItemLink>
+                  <ItemLink onClick={handleClick} to="/numbers">Number Maths</ItemLink>
+                </li>
+                <li>
+                  <ItemLink onClick={handleClick} to="/numbersguess">Number Guess</ItemLink>
                 </li>
                 <li>
                   <ItemLink onClick={handleClick} to="/images">Images</ItemLink>
