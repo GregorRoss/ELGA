@@ -60,7 +60,7 @@ const ELGAContainer = () => {
       free_api: true,
       text: text,
       target_lang: language,
-      auth_key: "3695773e-5514-5c81-e3c9-b57f36971a52:fx"
+      auth_key: REACT_APP_API_KEY
       // All optional parameters available in the official documentation can be defined here as well.
     })
     .catch(error => {
