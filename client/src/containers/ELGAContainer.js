@@ -6,9 +6,7 @@ import Numbers from '../components/Numbers';
 import Phrases from '../components/Phrases';
 import Images from '../components/Images';
 import NavBar from "../components/NavBar";
-import NumbersService from '../services/NumbersService';
-import ImagesService from '../services/ImagesService';
-import PhrasesService from '../services/PhrasesService';
+import { getNumbers } from '../services/NumbersService';
 import "../components/ELGASplash.css"
 
 const translate = require('deepl');
@@ -20,11 +18,14 @@ const ELGAContainer = () => {
   const [phrases, setPhrases] = useState([]);
   const [click, setClick] = useState(false);
   const [clicked, setClicked] = useState(false);
+  const [translatedPhrases, setTranslatedPhrases] = useState([]);
 
 
   useEffect(() => {
-    // NumbersService.getNumbers()
-    // .then(numbers => setNumbers(numbers));
+    getNumbers()
+    .then(numbers => setNumbers(numbers));
+
+    console.log(numbers);
 
     // ImagesService.getImages()
     // .then(images => setImages(images));
