@@ -31,7 +31,6 @@ const ELGAContainer = () => {
   const [translatedImage, setTranslatedImage] = useState('')
 
 
-  const [language, setLanguage] = useState("es");
   const [apiNum1, setApiNum1] = useState("");
   const [apiNum2, setApiNum2] = useState("");
 
