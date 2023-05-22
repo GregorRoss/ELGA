@@ -2,6 +2,13 @@ import React from 'react';
 import {Link } from 'react-router-dom';
 import styled from "styled-components";
 
+const SpanishFlag = styled.img`
+    position: absolute;
+    width: 50px;
+    left: 2rem;
+    top: 1rem;
+`
+
 const COLORS = {
     primaryDark: "aqua",
     primaryLight: "lightpink",
@@ -119,6 +126,7 @@ const NavBar = ({handleClick, click}) => {
 
     return(
         <div>
+          <SpanishFlag className='Flag' id='spanish_flag' src={require("../images/spain.png")} alt="cartoon spanish flag"></SpanishFlag>
           <MenuLabel htmlFor='navi-toogle' onClick={handleClick}>
             <Icon clicked={click}>&nbsp;</Icon>
           </MenuLabel>

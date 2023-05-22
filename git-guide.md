@@ -32,4 +32,4 @@ git checkout main
 git pull
 
 ## Delete the 
-git branch -d styling/navbar 
+git branch -d -branch-name-
