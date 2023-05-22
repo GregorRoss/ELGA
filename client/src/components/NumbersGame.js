@@ -91,9 +91,7 @@ const start = () => {
     return (
         <>
         <p>Please calculate the following Question:</p>
-        <p> What is {num1} + {num2} ? ...</p>
-        <p> should be {num1 + num2}</p>
-        <p> {num1Word} add  {num2Word} </p>
+        <p> {num1Word}  +  {num2Word} </p>
 
         <form id = "FormGuess">
                 <input 
@@ -106,7 +104,7 @@ const start = () => {
             {gameStatus === "playing" ? (
                     <button type="button" onClick={checkGuess}>Guess</button>
                 ) : (
-                    <button type="button" onClick={start}> Start</button>
+                    <button type="button" onClick={start}>Start</button>
                 )}
                 <p>{msg}</p>  
                 <p>Score Wins: {winsLosses.wins} Lose: {winsLosses.losses}</p>

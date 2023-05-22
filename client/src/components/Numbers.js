@@ -22,7 +22,7 @@ const Numbers = ({num1, num2, setRandomNumbers, transNum, apiNum1, num1Word, num
     return (  
         <>
             <h1>Number Maths</h1>
-            <p>Numbers Options -- need to add the option variables here</p>
+            <p>Please set number of rounds and the level you would like to play</p>
             <div className='numbers-round-options'>
                 <select onChange={handleRoundSelect}>
                     <option value="" selected> Please select number of rounds: </option>
@@ -33,7 +33,6 @@ const Numbers = ({num1, num2, setRandomNumbers, transNum, apiNum1, num1Word, num
                     <option>20</option>
                 </select>
             </div>
-
             <div className='numbers-round-options'>
                 <select onChange={handleLevelSelect}>
                     <option value="" selected> Please select level: </option>
@@ -49,8 +48,6 @@ const Numbers = ({num1, num2, setRandomNumbers, transNum, apiNum1, num1Word, num
                     <option>10</option>
                 </select>
             </div>
-            <p>game</p>
-
             <NumbersGame level={level} rounds={rounds} num1={num1} num2={num2} num1Word={num1Word} num2Word={num2Word} setRandomNumbers={setRandomNumbers} transNum={transNum} apiNum1={apiNum1}/>
 
 
