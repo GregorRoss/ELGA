@@ -24,7 +24,7 @@ const NumbersGame = ({level, rounds, num1, num2, num1Word, num2Word, setRandomNu
         setMsg(getMessage(numberInput,resultNumber));
         updateScore();
         playRound();
-        setNumberInput("")
+
     };
     
    // this function checks the input and result then puts the correct message in state 
@@ -76,14 +76,13 @@ const NumbersGame = ({level, rounds, num1, num2, num1Word, num2Word, setRandomNu
 
 // function that does the initial start to the game
 const start = () => {
-    console.log("num bewfore state change", num1);
+    console.log("num before state change", num1);
 
-    getRandomNumbers(level);
+    setGameStatus("playing");
+    playRound();
     console.log("num after state change", num1);
 
-    calcNumber();
-    setRoundCount(1);
-    setGameStatus("playing");
+
 
 }
 
@@ -91,9 +90,7 @@ const start = () => {
     return (
         <>
         <p>Please calculate the following Question:</p>
-        <p> What is {num1} + {num2} ? ...</p>
-        <p> should be {num1 + num2}</p>
-        <p> {num1Word} add  {num2Word} </p>
+        <p> {num1Word}  +  {num2Word} </p>
 
         <form id = "FormGuess">
                 <input 
@@ -106,7 +103,7 @@ const start = () => {
             {gameStatus === "playing" ? (
                     <button type="button" onClick={checkGuess}>Guess</button>
                 ) : (
-                    <button type="button" onClick={start}> Start</button>
+                    <button type="button" onClick={start}>Start</button>
                 )}
                 <p>{msg}</p>  
                 <p>Score Wins: {winsLosses.wins} Lose: {winsLosses.losses}</p>
