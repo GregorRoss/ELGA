@@ -7,6 +7,7 @@ import Phrases from '../components/Phrases';
 import Images from '../components/Images';
 import NavBar from "../components/NavBar";
 import { getNumbers } from '../services/NumbersService';
+import { getPhrases } from '../services/PhrasesService';
 import "../components/ELGASplash.css"
 
 const translate = require('deepl');
@@ -28,8 +29,8 @@ const ELGAContainer = () => {
     // ImagesService.getImages()
     // .then(images => setImages(images));
 
-    // PhrasesService.getPhrases()
-    // .then(phrases => setPhrases[phrases]);
+    getPhrases()
+    .then(phrases => setPhrases[phrases]);
   }, []);
 
   const fetchData = (text, language) => {
