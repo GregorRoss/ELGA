@@ -23,6 +23,9 @@ const ELGAContainer = () => {
   const [translatedPhrases, setTranslatedPhrases] = useState([]);
   const [num1, setNumber1] = useState(0);
   const [num2, setNumber2] = useState(0);
+  const [language, setLanguage] = useState("es");
+  const [apiNum1, setApiNum1] = useState("");
+  const [apiNum2, setApiNum2] = useState("");
 
   useEffect(() => {
     getNumbers()
@@ -60,6 +63,15 @@ const setRandomNumbers = (num1, num2) => {
   setNumber2(num2);
 }
 
+const transNum =(num) => {
+  englishNum1 = numbers.find(element => element.number = num)
+  apiNum = fetchData(englishNum.word,language)
+  console.log(apiNum);
+  
+}
+// input - num
+// const foundWord = numbers.find  - element.number === num
+// output - foundWord.word
 
 
   // fetchData('Hello, World', 'ES');
