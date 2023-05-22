@@ -9,7 +9,7 @@
 .question-form {
     margin-top: 45px;
 }
-
+/* 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
 .title-word {
@@ -58,7 +58,7 @@
     font-weight: 800;
     font-size: 8.5vw;
     text-transform: uppercase;
-  }
+  } */
   
   textarea {
     font-family: 'Ubuntu', sans-serif;
@@ -97,7 +97,7 @@
     padding: 0;
     margin: 0;
     width: 10%;
-    border-top: 1px solid red;
+    border-top: 3px solid red;
     -webkit-transition: width 0.4s ease;
     transition: width 0.4s ease;
     height: 0px;

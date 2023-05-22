@@ -26,9 +26,9 @@ const SubmitButton = ({onClick}) => {
             width="78.5"
             height="23"
             filterUnits="userSpaceOnUse"
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
           >
-            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feFlood floodOpacity="0" result="BackgroundImageFix" />
             <feBlend
               mode="normal"
               in="SourceGraphic"
@@ -48,8 +48,8 @@ const SubmitButton = ({onClick}) => {
             y2="44"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="white" stop-opacity="0.6" />
-            <stop offset="1" stop-color="white" stop-opacity="0.05" />
+            <stop stopColor="white" stopOpacity="0.6" />
+            <stop offset="1" stopColor="white" stopOpacity="0.05" />
           </linearGradient>
         </defs>
       </svg>
