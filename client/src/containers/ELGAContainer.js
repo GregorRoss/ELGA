@@ -23,6 +23,8 @@ const ELGAContainer = () => {
   const [translatedPhrases, setTranslatedPhrases] = useState([]);
   const [num1, setNumber1] = useState(0);
   const [num2, setNumber2] = useState(0);
+
+
   const [language, setLanguage] = useState("es");
   const [apiNum1, setApiNum1] = useState("");
   const [apiNum2, setApiNum2] = useState("");
@@ -36,19 +38,27 @@ const ELGAContainer = () => {
 
     getPhrases()
     .then(phrases => setPhrases[phrases]);
+
+
   }, []);
 
+  useEffect(() => {
+    transNum("num1", num1)
+  }, [num1])
+
+  useEffect(() => {
+    transNum("num2", num2)
+  }, [num2])
+
   const fetchData = (text, language) => {
-    translate({
+    console.log("text", text);
+    console.log("language", language);
+    return translate({
       free_api: true,
       text: text,
       target_lang: language,
-      auth_key: process.env.REACT_APP_API_KEY,
+      auth_key: "3695773e-5514-5c81-e3c9-b57f36971a52:fx"
       // All optional parameters available in the official documentation can be defined here as well.
-    })
-    .then(result => {
-        const text = result.data.translations[0].text;
-        console.log(text);
     })
     .catch(error => {
         console.error(error)
@@ -63,11 +73,25 @@ const setRandomNumbers = (num1, num2) => {
   setNumber2(num2);
 }
 
-const transNum =(num) => {
-  englishNum1 = numbers.find(element => element.number = num)
-  apiNum = fetchData(englishNum.word,language)
-  console.log(apiNum);
+const transNum =(stateSelector, num) => {
+  let englishNum1 = numbers.find(element => element.number == num)
+
+
+  if (stateSelector === "num1" && englishNum1){
+  fetchData(englishNum1.word,language)
+  .then(res => setApiNum1(res.data.translations[0].text))
+  }
+  if(stateSelector === "num2" && englishNum1){
+  fetchData(englishNum1.word,language)
+  .then(res => setApiNum2(res.data.translations[0].text))
+  }
   
+
+  
+
+  // let apiNum = fetchData(englishNum1.word,language)
+  // console.log(apiNum);
+  // setApiNum1(apiNum)
 }
 // input - num
 // const foundWord = numbers.find  - element.number === num
@@ -82,7 +106,7 @@ const transNum =(num) => {
       <Routes>
         <Route path='/' element={<ELGASplash handleHomeClick={handleHomeClick} clicked={clicked}/>} />
         <Route path='/home' element={<Home />} />
-        <Route path='/numbers' element={<Numbers num1={num1} num2={num2} setRandomNumbers={setRandomNumbers}/>} />
+        <Route path='/numbers' element={<Numbers num1={num1} num2={num2} num1Word={apiNum1} num2Word={apiNum2} setRandomNumbers={setRandomNumbers} transNum={transNum} apiNum1={apiNum1}/>} />
         <Route path='/numbersguess' element={<NumbersGuess />} />
         <Route path='/images' element={<Images />} />
         <Route path='/phrases' element={<Phrases />} />
