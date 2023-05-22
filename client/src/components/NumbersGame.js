@@ -2,9 +2,8 @@ import React from 'react';
 import { useState } from 'react';
 
 
-const NumbersGame = () => {
-    let roundMax = 3;
-    let level = 10;
+const NumbersGame = ({level, rounds}) => {
+    let roundMax = rounds;
     let operator = "add";
     let apiNum1 = "Tres";
     let apiNum2 = "Tres";
@@ -115,15 +114,7 @@ const start = () => {
            
             </form>
 
-       
 
-
-
-        <h3>This information is for testing purposes</h3>
-        <p>this is number1: {num1}</p>
-        <p>this is number2: {num2}</p>
-        <p>this is the actual result {resultNumber}</p>
-        <p>this is the number that you input {numberInput}</p>
         </>
 
       );
