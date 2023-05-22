@@ -87,7 +87,7 @@ const start = () => {
     return (
         <>
         <p>Please calculate the following Question:</p>
-        <p> What is {num1} add {num2} ? ...</p>
+        <p> What is {num1} + {num2} ? ...</p>
         <p> should be {num1 + num2}</p>
         <p> {apiNum1} add  {apiNum2} </p>
 

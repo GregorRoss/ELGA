@@ -52,7 +52,7 @@ const Numbers = ({num1, num2, setRandomNumbers}) => {
             <p>game</p>
 
             <NumbersGame level={level} rounds={rounds} num1={num1} num2={num2} setRandomNumbers={setRandomNumbers}/>
-       
+
 
         </>
     );
