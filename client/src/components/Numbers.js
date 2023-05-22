@@ -5,7 +5,7 @@ import NumbersGuess from './NumbersGuess';
 
 
 
-const Numbers = ({num1, num2, setRandomNumbers}) => {
+const Numbers = ({num1, num2, setRandomNumbers, transNum, apiNum1, num1Word, num2Word}) => {
 
         let operator = "add"
     const [rounds, setRounds] = useState();
@@ -51,8 +51,8 @@ const Numbers = ({num1, num2, setRandomNumbers}) => {
             </div>
             <p>game</p>
 
-            <NumbersGame level={level} rounds={rounds} num1={num1} num2={num2} setRandomNumbers={setRandomNumbers}/>
-       
+            <NumbersGame level={level} rounds={rounds} num1={num1} num2={num2} num1Word={num1Word} num2Word={num2Word} setRandomNumbers={setRandomNumbers} transNum={transNum} apiNum1={apiNum1}/>
+
 
         </>
     );

@@ -2,10 +2,9 @@ import React from 'react';
 import { useState } from 'react';
 
 
-const NumbersGame = ({level, rounds, num1, num2, setRandomNumbers}) => {
+const NumbersGame = ({level, rounds, num1, num2, num1Word, num2Word, setRandomNumbers, transNum, apiNum1}) => {
     let roundMax = rounds;
     let operator = "add";
-    let apiNum1 = "Tres";
     let apiNum2 = "Tres";
 
 
@@ -77,19 +76,24 @@ const NumbersGame = ({level, rounds, num1, num2, setRandomNumbers}) => {
 
 // function that does the initial start to the game
 const start = () => {
+    console.log("num bewfore state change", num1);
+
     getRandomNumbers(level);
+    console.log("num after state change", num1);
+
     calcNumber();
     setRoundCount(1);
     setGameStatus("playing");
+
 }
 
     
     return (
         <>
         <p>Please calculate the following Question:</p>
-        <p> What is {num1} add {num2} ? ...</p>
+        <p> What is {num1} + {num2} ? ...</p>
         <p> should be {num1 + num2}</p>
-        <p> {apiNum1} add  {apiNum2} </p>
+        <p> {num1Word} add  {num2Word} </p>
 
         <form id = "FormGuess">
                 <input 
