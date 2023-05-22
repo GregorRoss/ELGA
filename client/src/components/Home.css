@@ -1,0 +1,31 @@
+.home-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-title {
+    font-family: "Rubik Puddles";
+}
+
+.game-title {
+    font-family: "Modak";
+    font-size: 7.5vw;
+    margin-bottom: 0;
+}
+
+.game-image, .grow {
+    width: 30vw;
+}
+
+.grow:hover {
+    animation: grow 2s linear;
+}
+
+@media (min-width: 768px) {
+    .home-container {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}
