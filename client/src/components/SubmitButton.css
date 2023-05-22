@@ -59,15 +59,15 @@ button {
     padding: 12px 24px;
     position: relative;
     text-decoration: none;
-    transition: 0.2s;
+    transition: 0.2s; 
     
-    /* svg {
+    svg {
       left: -20px;
       opacity: 0.5;
       position: absolute;
       top: -2px;
       transition: 0.5s cubic-bezier(.5,-0.5,.5,1.5);
-    } */
+    }
     
     &:hover svg {
       opacity: 0.8;
