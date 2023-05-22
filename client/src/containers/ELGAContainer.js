@@ -25,8 +25,6 @@ const ELGAContainer = () => {
     getNumbers()
     .then(numbers => setNumbers(numbers));
 
-    console.log(numbers);
-
     // ImagesService.getImages()
     // .then(images => setImages(images));
 
