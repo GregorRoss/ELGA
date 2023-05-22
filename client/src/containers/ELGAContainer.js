@@ -26,6 +26,9 @@ const ELGAContainer = () => {
   const [num2, setNumber2] = useState(0);
   const [phrase, setPhrase] = useState('');
   const [translatedPhrase, setTranslatedPhrase] = useState('');
+  const [imageName, setImageName] = useState('')
+  const [image, setImage] = useState('');
+  const [translatedImage, setTranslatedImage] = useState('')
 
   useEffect(() => {
     getNumbers()
@@ -54,7 +57,6 @@ const ELGAContainer = () => {
         console.error(error)
     });
 };
-
 const handleClick = () => setClick(!click);
 const handleHomeClick = () => setClicked(!clicked)
 
@@ -68,8 +70,14 @@ const setRandomPhrase = (phrase, language) => {
   fetchData(phrase, language);
   setTranslatedPhrase(phrase);
 };
-  // fetchData('Hello, World', 'ES');
 
+const setRandomImage = (image, language) => {
+  setImageName(image.word);
+  setImage(image.image);
+  // fetchData(image.word, language);
+  setTranslatedImage(image.word);
+};
+  // fetchData('Hello, World', 'ES');
   return (  
     <Router>
       <NavBar handleClick={handleClick} click={click} />
@@ -78,7 +86,7 @@ const setRandomPhrase = (phrase, language) => {
         <Route path='/home' element={<Home />} />
         <Route path='/numbers' element={<Numbers num1={num1} num2={num2} setRandomNumbers={setRandomNumbers}/>} />
         <Route path='/numbersguess' element={<NumbersGuess />} />
-        <Route path='/images' element={<Images />} />
+        {images.length > 0 ? <Route path='/images' element={<Images images={images} setRandomImage={setRandomImage} image={image} imageName={imageName} translatedImage={translatedImage} language={language} />} /> : null}
         {phrases.length > 0 ? <Route path='/phrases' element={<Phrases phrases={phrases} setRandomPhrase={setRandomPhrase}  phrase={phrase} translatedPhrase={translatedPhrase} language={language} />} /> : null}
       </Routes>
     </Router>
