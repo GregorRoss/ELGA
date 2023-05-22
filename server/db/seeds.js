@@ -58,8 +58,29 @@ db.phrases.insertMany([
     phrase: "What is your name?"
   },
   {
-    phrase: "My name is"
-  }
+    phrase: "Where is the nearest toilet?"
+  },
+  {
+    phrase: "Please"
+  },
+  {
+    phrase: "I need help"
+  },
+  {
+    phrase: "How much does this cost?"
+  },
+  {
+    phrase: "I love you"
+  },
+  {
+    phrase: "Where is the fudge?"
+  },
+  {
+    phrase: "Excuse me"
+  },
+  {
+    phrase: "Coding is cool"
+  },
 ]);
 
 db.images.insertMany([
