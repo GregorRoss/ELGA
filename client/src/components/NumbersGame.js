@@ -24,7 +24,7 @@ const NumbersGame = ({level, rounds, num1, num2, num1Word, num2Word, setRandomNu
         setMsg(getMessage(numberInput,resultNumber));
         updateScore();
         playRound();
-        setNumberInput("")
+
     };
     
    // this function checks the input and result then puts the correct message in state 
@@ -76,14 +76,13 @@ const NumbersGame = ({level, rounds, num1, num2, num1Word, num2Word, setRandomNu
 
 // function that does the initial start to the game
 const start = () => {
-    console.log("num bewfore state change", num1);
+    console.log("num before state change", num1);
 
-    getRandomNumbers(level);
+    setGameStatus("playing");
+    playRound();
     console.log("num after state change", num1);
 
-    calcNumber();
-    setRoundCount(1);
-    setGameStatus("playing");
+
 
 }
 
