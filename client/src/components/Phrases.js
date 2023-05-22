@@ -9,13 +9,22 @@ const Phrases = ({phrases, setRandomPhrase, phrase, translatedPhrase, language})
   },[]);
 
   const [input, setInput] = useState('');
+  const [score, setScore] = useState(0);
 
   const getRandomIndex = () => {
     const randomIndex = Math.floor(Math.random() * phrases.length);
     setRandomPhrase(phrases[randomIndex].phrase, language);
   };
 
-
+  const handleClick = () => {
+    if (input === translatedPhrase) {
+      console.log('Correct')
+      getRandomIndex();
+      setScore(score + 1)
+    } else {
+      console.log('Wrong');
+    }
+  };
 
   return (
     <>
@@ -39,24 +48,18 @@ const Phrases = ({phrases, setRandomPhrase, phrase, translatedPhrase, language})
 
           <input
             type="text"
-            name="name"
+            name="input"
             className="question"
-            id="nme"
+            id="name"
             required
             autoComplete="off"
             onChange={(e) => setInput(e.target.value)}
           />
-    <label htmlFor="nme">
+    <label htmlFor="name">
       <span></span>
           </label>
             <SubmitButton
-              onClick={() => {
-                if (input === translatedPhrase) {
-                  console.log('You got it right!');
-                } else {
-                  console.log("That's not right!")
-                }
-              }}
+              onClick={handleClick}
             />
 
         </form>

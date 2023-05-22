@@ -11,6 +11,7 @@ import { getPhrases } from '../services/PhrasesService';
 import { getImages } from '../services/ImagesService';
 import "../components/ELGASplash.css"
 import NumbersGuess from '../components/NumbersGuess';
+import { getScores } from '../services/ScoresService';
 
 const translate = require('deepl');
 
@@ -19,6 +20,7 @@ const ELGAContainer = () => {
   const [language, setLanguage] = useState('ES');
   const [numbers, setNumbers] = useState([]);
   const [images, setImages] = useState([]);
+  const [scores, setScores] = useState([]);
   const [phrases, setPhrases] = useState([]);
   const [click, setClick] = useState(false);
   const [clicked, setClicked] = useState(false);
@@ -43,6 +45,9 @@ const ELGAContainer = () => {
 
     getPhrases()
     .then(phrases => setPhrases(phrases));
+
+    getScores()
+    .then(scores => setScores(scores));
   }, []);
 
   useEffect(() => {
@@ -103,8 +108,8 @@ const transNum =(stateSelector, num) => {
   // fetchData('Hello, World', 'ES');
 const setRandomPhrase = (phrase, language) => {
   setPhrase(phrase);
-  fetchData(phrase, language);
-  setTranslatedPhrase(phrase);
+  fetchData(phrase, language)
+  .then(res => setTranslatedPhrase(res.data.translations[0].text));
 };
 
 const setRandomImage = (image, language) => {
@@ -113,7 +118,9 @@ const setRandomImage = (image, language) => {
   // fetchData(image.word, language);
   setTranslatedImage(image.word);
 };
-  // fetchData('Hello, World', 'ES');
+
+
+
   return (  
     <Router>
       <NavBar handleClick={handleClick} click={click} />
