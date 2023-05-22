@@ -11,6 +11,7 @@ import { getPhrases } from '../services/PhrasesService';
 import { getImages } from '../services/ImagesService';
 import "../components/ELGASplash.css"
 import NumbersGuess from '../components/NumbersGuess';
+import { getScores } from '../services/ScoresService';
 
 const translate = require('deepl');
 
@@ -19,6 +20,7 @@ const ELGAContainer = () => {
   const [language, setLanguage] = useState('ES');
   const [numbers, setNumbers] = useState([]);
   const [images, setImages] = useState([]);
+  const [scores, setScores] = useState([]);
   const [phrases, setPhrases] = useState([]);
   const [click, setClick] = useState(false);
   const [clicked, setClicked] = useState(false);
@@ -43,6 +45,9 @@ const ELGAContainer = () => {
 
     getPhrases()
     .then(phrases => setPhrases(phrases));
+
+    getScores()
+    .then(scores => setScores(scores));
   }, []);
 
   useEffect(() => {
@@ -103,8 +108,8 @@ const transNum =(stateSelector, num) => {
   // fetchData('Hello, World', 'ES');
 const setRandomPhrase = (phrase, language) => {
   setPhrase(phrase);
-  fetchData(phrase, language);
-  setTranslatedPhrase(phrase);
+  fetchData(phrase, language)
+  .then(res => setTranslatedPhrase(res.data.translations[0].text));
 };
 
 const setRandomImage = (image, language) => {
@@ -113,7 +118,9 @@ const setRandomImage = (image, language) => {
   // fetchData(image.word, language);
   setTranslatedImage(image.word);
 };
-  // fetchData('Hello, World', 'ES');
+
+
+
   return (  
     <Router>
       <NavBar handleClick={handleClick} click={click} />
@@ -123,7 +130,7 @@ const setRandomImage = (image, language) => {
         <Route path='/numbers' element={<Numbers num1={num1} num2={num2} num1Word={apiNum1} num2Word={apiNum2} setRandomNumbers={setRandomNumbers} transNum={transNum} apiNum1={apiNum1}/>} />
         <Route path='/numbersguess' element={<NumbersGuess />} />
         {images.length > 0 ? <Route path='/images' element={<Images images={images} setRandomImage={setRandomImage} image={image} imageName={imageName} translatedImage={translatedImage} language={language} />} /> : null}
-        {phrases.length > 0 ? <Route path='/phrases' element={<Phrases phrases={phrases} setRandomPhrase={setRandomPhrase}  phrase={phrase} translatedPhrase={translatedPhrase} language={language} />} /> : null}
+        {phrases.length > 0 ? <Route path='/phrases' element={<Phrases phrases={phrases} setRandomPhrase={setRandomPhrase}  phrase={phrase} translatedPhrase={translatedPhrase} language={language} scores={scores} />} /> : null}
       </Routes>
     </Router>
   );
