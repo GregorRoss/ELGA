@@ -32,7 +32,7 @@ const Phrases = ({phrases, setRandomPhrase, phrase, translatedPhrase, language})
     <h2 className="game-title-EN">phrases</h2>
       <div className="game-container">
         <div className="speech-box delay-display">
-          <p className="question-text delay-display">{phrase}</p>
+          <p className="question-text delay-display">{translatedPhrase}</p>
         </div>
         <div className="bounce">
           <img className="slide-in-left shadow" id='quiz-egg' src={require("../images/quiz_egg.png")} alt="polka dot easter egg"></img>
