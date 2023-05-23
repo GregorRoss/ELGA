@@ -17,7 +17,7 @@ const Phrases = ({phrases, setRandomPhrase, phrase, translatedPhrase, language})
   };
 
   const handleClick = () => {
-    if (input === translatedPhrase) {
+    if (input.toLowerCase() === phrase.toLowerCase()) {
       console.log('Correct')
       getRandomIndex();
       setScore(score + 1)
@@ -43,7 +43,7 @@ const Phrases = ({phrases, setRandomPhrase, phrase, translatedPhrase, language})
         </h2>
       </div>
       <div className="question-container">
-        <p className="question-text">{phrase}</p>
+        <p className="question-text">{translatedPhrase}</p>
         <form className="question-form">
 
           <input

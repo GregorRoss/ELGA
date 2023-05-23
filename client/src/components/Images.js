@@ -39,7 +39,7 @@ const Images = ({images, setRandomImage, imageSrc, imageName, translatedImage, l
           </label>
             <SubmitButton
               onClick={() => {
-                if (input === translatedImage) {
+                if (input.toLowerCase() === translatedImage.toLowerCase()) {
                   console.log('You got it right!');
                 } else {
                   console.log("That's not right!")
