@@ -22,7 +22,7 @@ const Images = ({images, setRandomImage, imageSrc, imageName, translatedImage, l
   };
 
    // this function checks the guess and calls the required functions and sets the input back to empty
-   const checkGuess = () => {
+  const checkGuess = () => {
     setMsg(getMessage(input,translatedImage));
     updateScore();
     playRound();
@@ -106,5 +106,5 @@ const Images = ({images, setRandomImage, imageSrc, imageName, translatedImage, l
     </>
     );
 }
- 
+
 export default Images;
