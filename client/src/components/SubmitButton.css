@@ -59,7 +59,8 @@ button {
     padding: 12px 24px;
     position: relative;
     text-decoration: none;
-    transition: 0.2s; 
+    transition: 0.2s;
+    margin-bottom: 10vw;
     
     svg {
       left: -20px;

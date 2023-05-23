@@ -1,5 +1,6 @@
 import React, { useEffect, useState }  from 'react';
 import SubmitButton from "./SubmitButton";
+import "./Games.css";
 
 const Images = ({images, setRandomImage, image, imageName, translatedImage, language}) => {
 

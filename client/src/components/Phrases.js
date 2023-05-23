@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./Phrases.css";
+import "./Games.css";
 import SubmitButton from "./SubmitButton";
 
 const Phrases = ({phrases, setRandomPhrase, phrase, translatedPhrase, language}) => {
@@ -19,11 +19,16 @@ const Phrases = ({phrases, setRandomPhrase, phrase, translatedPhrase, language})
 
   return (
     <>
-    <h1 className="phrases-title">frases</h1>
-    <h2 className="phrases-title-EN">phrases</h2>
-      <div className="phrases-container">
-      <form className="question-form">
-        <p className="question-text">{phrase}I am a phrase... spanish me</p>
+    <h1 className="game-title">frases</h1>
+    <h2 className="game-title-EN">phrases</h2>
+      <div className="game-container">
+        <div className="speech-box delay-display">
+          <p className="question-text delay-display">{phrase}</p>
+        </div>
+        <div className="bounce">
+          <img className="slide-in-left shadow" id='quiz-egg' src={require("../images/quiz_egg.png")} alt="polka dot easter egg"></img>
+        </div>
+        <form className="question-form">
         <input
           type="text"
           name="name"

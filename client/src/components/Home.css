@@ -16,6 +16,7 @@
     font-family: "Modak";
     text-shadow: 0 1vw 2vw black;
     font-size: 7vw;
+    font-weight: 400;
 }
 
 .home-title-EN {
@@ -23,25 +24,27 @@
     font-family: "Modak";
     text-shadow: 0 1vw 2vw black;
     font-size: 4vw;
+    font-weight: 400;
 }
 
-.game-card {
+.games-card {
     width: 25vw;
     margin: 2vw 1vw;
-    background-color:skyblue;
+    background-color:whitesmoke;
     box-shadow: 0 0 3vw white;
     border-radius: 1vw;
     padding: 1vw;
 }
 
-.game-title {
+.games-title {
     font-family: "Modak";
     font-size: 6vw;
+    font-weight: 400;
     margin: 0;
     text-shadow: 0 1vw 1vw black;
 }
 
-.game-image {
+.games-image {
     width: 23vw;
 }
 
@@ -67,16 +70,16 @@
         font-size: 2.5vw;
     }
 
-    .game-card {
+    .games-card {
         width: 20vw;
         margin: 2vw;
     }
 
-    .game-title {
+    .games-title {
         font-size: 4vw;
     }
 
-    .game-image {
+    .games-image {
         width: 20vw;
     }
 }
