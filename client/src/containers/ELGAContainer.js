@@ -63,8 +63,6 @@ const ELGAContainer = () => {
   }, [num2])
 
   const fetchData = (text, language) => {
-    console.log("text", text);
-    console.log("language", language);
     return translate({
       free_api: true,
       text: text,
@@ -95,7 +93,7 @@ const transNum =(stateSelector, num) => {
   if(stateSelector === "num2" && englishNum1){
   fetchData(englishNum1.word,language)
   .then(res => setApiNum2(res.data.translations[0].text))
-  } 
+  }
 }
 
 const setRandomPhrase = (phrase, language) => {
