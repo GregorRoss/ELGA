@@ -114,7 +114,7 @@ const setRandomImage = (image, language) => {
       <NavBar handleClick={handleClick} click={click} />
       <Routes>
         <Route path='/' element={<ELGASplash handleHomeClick={handleHomeClick} clicked={clicked}/>} />
-        <Route path='/home' element={<Home />} />
+        <Route path='/home' element={<Home setLanguage={setLanguage}/>} />
         <Route path='/numbers' element={<Numbers num1={num1} num2={num2} num1Word={apiNum1} num2Word={apiNum2} setRandomNumbers={setRandomNumbers} transNum={transNum} apiNum1={apiNum1}/>} />
         <Route path='/numbersguess' element={<NumbersGuess />} />
         {images.length > 0 ? <Route path='/images' element={<Images images={images} setRandomImage={setRandomImage} imageSrc={imageSrc} imageName={imageName} translatedImage={translatedImage} language={language} />} /> : null}
