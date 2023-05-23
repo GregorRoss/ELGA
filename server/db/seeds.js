@@ -379,7 +379,56 @@ db.images.insertMany([
       image: "/images/hamburger.png"
   },
     {
-      word: "dog",
-      image: "/images/dog.png"
+      word: "cake",
+      image: "/images/cake.png"
+  },
+    {
+      word: "milk",
+      image: "/images/milk.png"
+  },
+    {
+      word: "snake",
+      image: "/images/snake.png"
+  },
+    {
+      word: "car",
+      image: "/images/car.png"
+  },
+    {
+      word: "duck",
+      image: "/images/duck.png"
+  },
+]);
+
+db.facts.insertMany([
+  {
+    fact: "Spanish is spoken by 559 million people around the world"
+  },
+  {
+    fact: "The Eiffel Tower was Almost Built in Barcelona"
+  },
+  {
+    fact: "Spain has a National Anthem with no Words"
+  },
+  {
+    fact: "Madrid is Home to the Oldest Restaurant in the World- it has been serving customer since 1725"
+  },
+  {
+    fact: "Spain Means The Land of the Rabbits"
+  },
+  {
+    fact: "There’s a Spanish New Year’s custom where you eat 12 grapes at midnight"
+  },
+  {
+    fact: "Spain’s Christmas lottery has the world’s biggest payout – It’s called El Gordo (which translates to the fat one)"
+  },
+  {
+    fact: "La Tomatina is an annual festival held in Spain where people throw thousands of tomatoes at each other"
+  },
+  {
+    fact: "Madrid is the physical center of Spain"
+  },
+  {
+    fact: "There are more native Spanish speakers than native English speakers in the world."
   },
 ]);

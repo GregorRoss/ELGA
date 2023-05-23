@@ -12,6 +12,8 @@ import { getImages } from '../services/ImagesService';
 import "../components/ELGASplash.css"
 import NumbersGuess from '../components/NumbersGuess';
 import { getScores } from '../services/ScoresService';
+import { getFacts } from "../services/FactsService";
+import Facts from "../components/Facts";
 
 const translate = require('deepl');
 
@@ -31,6 +33,7 @@ const ELGAContainer = () => {
   const [imageName, setImageName] = useState('')
   const [imageSrc, setImageSrc] = useState('');
   const [translatedImage, setTranslatedImage] = useState('')
+  const [facts, setFacts] = useState([])
 
 
   const [apiNum1, setApiNum1] = useState("");
@@ -48,6 +51,9 @@ const ELGAContainer = () => {
 
     getScores()
     .then(scores => setScores(scores));
+
+    getFacts()
+    .then(facts => setFacts(facts));
   }, []);
 
   useEffect(() => {
@@ -132,6 +138,7 @@ const setRandomImage = (image, language) => {
         {images.length > 0 ? <Route path='/images' element={<Images images={images} setRandomImage={setRandomImage} imageSrc={imageSrc} imageName={imageName} translatedImage={translatedImage} language={language} />} /> : null}
         {phrases.length > 0 ? <Route path='/phrases' element={<Phrases phrases={phrases} setRandomPhrase={setRandomPhrase}  phrase={phrase} translatedPhrase={translatedPhrase} language={language} />} /> : null}
       </Routes>
+      {facts.length > 0 ? <Facts facts={facts} /> : null} 
     </Router>
   );
 }
