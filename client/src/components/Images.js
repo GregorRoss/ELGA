@@ -1,5 +1,4 @@
 import React, { useEffect, useState }  from 'react';
-import "./Images.css";
 import SubmitButton from "./SubmitButton";
 import "./Games.css";
 
@@ -16,28 +15,29 @@ const Images = ({images, setRandomImage, imageSrc, imageName, translatedImage, l
   };
 
     return (  
-<>
-      <div className="title-container">
-          <div>
-          <h1>¿qué es esto?</h1>
-          <h2>what is this?</h2>
-          </div>
-      </div>
-      <div className="question-container">
-        <img className="randomImage" id='random_img' src={`http://localhost:9000${imageSrc}`} alt={imageName}/>
-        <form className="question-form">
-          <input
-            type="text"
-            name="name"
-            className="question"
-            id="nme"
-            required
-            autoComplete="off"
-            onChange={(e) => setInput(e.target.value)}
-          />
-    <label htmlFor="nme">
-      <span></span>
-          </label>
+    <>
+      <h1 className="game-title">¿qué es esto?</h1>
+      <h2 className="game-title-EN">what is this?</h2>
+      <div className="game-container">
+        <div className="thought-box delay-display">
+          <img className="randomImage" id='random_img' src={`http://localhost:9000${imageSrc}`} alt={imageName}/>
+        </div>
+        <div className="bounce">
+          <img className="slide-in-left shadow" id='quiz-egg' src={require("../images/quiz_egg.png")} alt="polka dot easter egg"></img>
+        </div>
+          <form className="question-form">
+            <input
+              type="text"
+              name="name"
+              className="question"
+              id="nme"
+              required
+              autoComplete="off"
+              onChange={(e) => setInput(e.target.value)}
+            />
+            <label htmlFor="nme">
+              <span></span>
+            </label>
             <SubmitButton
               onClick={() => {
                 if (input.toLowerCase() === translatedImage.toLowerCase()) {
@@ -48,8 +48,8 @@ const Images = ({images, setRandomImage, imageSrc, imageName, translatedImage, l
               }}
             />
 
-        </form>
-      </div>
+          </form>
+        </div>
     </>
     );
 }
