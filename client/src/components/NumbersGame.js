@@ -11,7 +11,7 @@ const NumbersGame = ({level, rounds, num1, num2, num1Word, num2Word, setRandomNu
     const [winsLosses, setwinLosses] = useState({wins: 0, losses: 0 });
     const [resultNumber, setResultNumber] = useState(0)
     const [msg, setMsg] = useState("");
-    const [numberInput, setNumberInput] = useState(null);
+    const [numberInput, setNumberInput] = useState("");
 
 
     const [roundCount, setRoundCount] = useState(0);

@@ -7,7 +7,7 @@ import NumbersGame from './NumbersGame';
 const Numbers = ({num1, num2, setRandomNumbers, transNum, apiNum1, num1Word, num2Word}) => {
 
         let operator = "add"
-    const [rounds, setRounds] = useState();
+    const [rounds, setRounds] = useState(0);
     const [level, setLevel] = useState();
 
     const handleRoundSelect = (event) => {
@@ -24,7 +24,7 @@ const Numbers = ({num1, num2, setRandomNumbers, transNum, apiNum1, num1Word, num
             <p>Please set number of rounds and the level you would like to play</p>
             <div className='numbers-round-options'>
                 <select onChange={handleRoundSelect}>
-                    <option value="" selected> Please select number of rounds: </option>
+                    <option value="" > Please select number of rounds: </option>
                     <option>3</option>
                     <option>5</option>
                     <option>10</option>
@@ -34,7 +34,7 @@ const Numbers = ({num1, num2, setRandomNumbers, transNum, apiNum1, num1Word, num
             </div>
             <div className='numbers-round-options'>
                 <select onChange={handleLevelSelect}>
-                    <option value="" selected> Please select level: </option>
+                    <option value="" > Please select level: </option>
                     <option>1</option>
                     <option>2</option>
                     <option>3</option>
