@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import NumbersGame from './NumbersGame';
-import NumbersGuess from './NumbersGuess';
 
 
 

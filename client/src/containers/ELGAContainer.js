@@ -99,16 +99,8 @@ const transNum =(stateSelector, num) => {
   .then(res => setApiNum2(res.data.translations[0].text))
   }
   
-
-  
-
-  // let apiNum = fetchData(englishNum1.word,language)
-  // console.log(apiNum);
-  // setApiNum1(apiNum)
 }
-// input - num
-// const foundWord = numbers.find  - element.number === num
-// output - foundWord.word
+
 
 
   // fetchData('Hello, World', 'ES');
