@@ -80,40 +80,41 @@ const start = () => {
     setRoundCount(0);
     setGameStatus("playing");
     playRound();
-
-
-
 }
 
-    
     return (
         <>
-        <p>Please calculate the following Question:</p>
-        <p> {num1Word}  +  {num2Word} </p>
+        {gameStatus === "playing" ? (
+            <div>
+                <p className="rubik-paragraph">calculate</p>
+                <p className="rubik-paragraph">{num1Word} + {num2Word}</p>
 
-        <form id = "FormGuess">
-                <input 
-                    type="number"
-                    id ="numberInput"
-                    value={numberInput}
-                    onChange={(e) => setNumberInput(e.target.value)}
-                />
+                <form id = "FormGuess">
+                        <input
+                            className="number-input" 
+                            type="number"
+                            id ="numberInput"
+                            value={numberInput}
+                            onChange={(e) => setNumberInput(e.target.value)}
+                        />
+
+                </form>
+                <button className="start-button rubik-paragraph" type="button" onClick={checkGuess}>guess</button>
+            </div>
+            ) : (<button className="start-button rubik-paragraph" type="button" onClick={start}>start</button>)}
 
             {gameStatus === "playing" ? (
-                    <button type="button" onClick={checkGuess}>Guess</button>
-                ) : (
-                    <button type="button" onClick={start}>Start</button>
-                )}
-                <p>{msg}</p>  
-                <p>Score Wins: {winsLosses.wins} Lose: {winsLosses.losses}</p>
-                <p>this is the roundCount:  {roundCount} of {roundMax}</p>
-                 
-           
-            </form>
-
-
+            <div><p className="rubik-paragraph">{msg}</p>
+                <div className="score-container">
+                    <img className="score-img" src={require("../images/checked.png")}></img>
+                    <p className="rubik-paragraph score-number">{winsLosses.wins}</p>
+                    <img className="score-img" src={require("../images/error.png")}></img>
+                    <p className="rubik-paragraph score-number">{winsLosses.losses}</p>
+                </div>
+                <p className="rubik-paragraph">round {roundCount} of {roundMax}</p>
+            </div>
+            ) : (<p></p>)}
         </>
-
       );
 }
  

@@ -78,21 +78,22 @@ const Images = ({
         <h2 className="game-title-EN">what is this?</h2>
       </div>
       <div className="game-container">
-        <div className="thought-box delay-display">
-          <img
-            className="randomImage"
-            id="random_img"
-            src={`http://localhost:9000${imageSrc}`}
-            alt={imageName}
-          />
-        </div>
-        <div className="bounce">
-          <img
-            className="slide-in-left shadow"
-            id="quiz-egg"
-            src={require("../images/quiz_egg.png")}
-            alt="polka dot easter egg"
-          ></img>
+        <div className="thought-box-container">
+          <div className="thought-box delay-display">
+            <img
+              className="randomImage"
+              id="random_img"
+              src={`http://localhost:9000${imageSrc}`}
+              alt={imageName}
+            />
+          </div>
+          <div className="bounce">
+            <img
+              className="slide-in-left shadow quiz-egg"
+              src={require("../images/quiz_egg.png")}
+              alt="polka dot easter egg"
+            ></img>
+          </div>
         </div>
         <form className="question-form">
           <input

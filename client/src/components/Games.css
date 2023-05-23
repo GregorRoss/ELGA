@@ -20,6 +20,40 @@
   font-weight: 400;
 }
 
+.dropdown-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.rubik-paragraph {
+  font-family: "Modak";
+  font-weight: 400;
+  margin: 0;
+  text-shadow: 0 1vw 2vw black;
+}
+
+.dropdown {
+  margin-left: 5vw;
+  border: none;
+  border-radius: 10vw;
+  box-shadow: 0 1vw 2vw black;
+}
+
+.number-input {
+  width: 10vw;
+  border: none;
+  border-radius: 10vw;
+  box-shadow: 0 1vw 2vw black;
+}
+
+.start-button {
+  margin: 10vw 0 0 0;
+  padding: 0;
+  width: 15vw;
+  height: 10vw;
+}
+
 .speech-box {
   width: 80vw;
   height: 80vw;
@@ -29,6 +63,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.speech-box-container, .thought-box-container {
+  max-width: 300px;
 }
 
 .thought-box {
@@ -62,6 +100,22 @@
 	0% {opacity: 0;}
 	99% {opacity: 0;}
 	100% {opacity: 1;}
+}
+
+.score-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.score-img {
+  width: 15vw;
+}
+
+.score-number {
+  font-size: 10vw;
+  margin: 0 5vw;
 }
 
 .question-text {
@@ -204,6 +258,7 @@
     .game-container {
       margin-top: 5vw;
       flex-direction: row;
+      justify-content: space-between;
     }
 
     .delay-display {
@@ -230,8 +285,6 @@
     .speech-box, .thought-box {
       width: 30vw;
       height: 30vw;
-      order: 2;
-      margin-top: -30vw;
     }
 
     .randomImage {
@@ -247,11 +300,9 @@
     #quiz-egg {
       width: 12vw;
       margin: 0;
-      order: 1;
     }
 
     .question-form {
-      order: 3;
       padding-left: 10vw;
     }
   }
