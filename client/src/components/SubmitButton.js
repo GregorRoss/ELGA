@@ -4,7 +4,7 @@ import './SubmitButton.css'
 const SubmitButton = ({onClick}) => {
   return (
     <button className="submit-button" type="button" onClick={onClick}>
-      SUBMIT
+      guess
       <svg
         width="79"
         height="23"

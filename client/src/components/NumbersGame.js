@@ -1,6 +1,5 @@
-import React from 'react';
-import { useState } from 'react';
-
+import React , {useState} from 'react';
+import "./Games.css";
 
 const NumbersGame = ({level, rounds, num1, num2, num1Word, num2Word, setRandomNumbers, transNum, apiNum1}) => {
     let roundMax = rounds;

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./Phrases.css";
+import "./Games.css";
 import SubmitButton from "./SubmitButton";
 
 const Phrases = ({phrases, setRandomPhrase, phrase, translatedPhrase, language}) => {
@@ -28,40 +28,31 @@ const Phrases = ({phrases, setRandomPhrase, phrase, translatedPhrase, language})
 
   return (
     <>
-      <div className="title-container">
-        <h2 className="title">
-          <div>
-            {/* <span className="title-word title-word-1">Adivina </span>
-            <span className="title-word title-word-2">la </span>
-            <span className="title-word title-word-3">Frase </span> */}
-          </div>
-          <div>
-            {/* <span className="title-word title-word-1">Guess </span>
-            <span className="title-word title-word-2">the </span>
-            <span className="title-word title-word-3">phrase </span> */}
-          </div>
-        </h2>
-      </div>
-      <div className="question-container">
-        <p className="question-text">{translatedPhrase}</p>
+    <h1 className="game-title">frases</h1>
+    <h2 className="game-title-EN">phrases</h2>
+      <div className="game-container">
+        <div className="speech-box delay-display">
+          <p className="question-text delay-display">{phrase}</p>
+        </div>
+        <div className="bounce">
+          <img className="slide-in-left shadow" id='quiz-egg' src={require("../images/quiz_egg.png")} alt="polka dot easter egg"></img>
+        </div>
         <form className="question-form">
-
-          <input
-            type="text"
-            name="input"
-            className="question"
-            id="name"
-            required
-            autoComplete="off"
-            onChange={(e) => setInput(e.target.value)}
-          />
-    <label htmlFor="name">
-      <span></span>
-          </label>
+        <input
+          type="text"
+          name="name"
+          className="question"
+          id="nme"
+          required
+          autoComplete="off"
+          onChange={(e) => setInput(e.target.value)}
+        />   
+      <label htmlFor="nme">
+        <span></span>
+      </label>
             <SubmitButton
               onClick={handleClick}
             />
-
         </form>
       </div>
     </>
