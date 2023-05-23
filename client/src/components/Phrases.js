@@ -9,7 +9,8 @@ const Phrases = ({phrases, setRandomPhrase, phrase, translatedPhrase, language})
   },[]);
 
   const [input, setInput] = useState('');
-  const [score, setScore] = useState(0);
+  const [wins, setWins] = useState(0);
+  const [losses, setLosses] = useState(0);
 
   const getRandomIndex = () => {
     const randomIndex = Math.floor(Math.random() * phrases.length);
@@ -21,10 +22,13 @@ const Phrases = ({phrases, setRandomPhrase, phrase, translatedPhrase, language})
     if (input.toLowerCase() === phrase.toLowerCase()) {
       console.log('Correct')
       getRandomIndex();
-      setScore(score + 1);
+      setWins(wins + 1);
       setInput("");
     } else {
       console.log('Wrong');
+      getRandomIndex();
+      setLosses(losses + 1);
+      setInput("");
     }
   };
 
@@ -55,7 +59,12 @@ const Phrases = ({phrases, setRandomPhrase, phrase, translatedPhrase, language})
       </label>
             <SubmitButton />
         </form>
+        <div>
+        <p>Wins: {wins}</p>
+        <p>Losses: {losses}</p>
+        </div>
       </div>
+
     </>
   );
 };
