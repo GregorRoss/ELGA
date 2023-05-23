@@ -20,7 +20,8 @@ const Phrases = ({phrases, setRandomPhrase, phrase, translatedPhrase, language})
     if (input.toLowerCase() === phrase.toLowerCase()) {
       console.log('Correct')
       getRandomIndex();
-      setScore(score + 1)
+      setScore(score + 1);
+      setInput("");
     } else {
       console.log('Wrong');
     }
@@ -49,6 +50,7 @@ const Phrases = ({phrases, setRandomPhrase, phrase, translatedPhrase, language})
           id="nme"
           required
           autoComplete="off"
+          value={input}
           onChange={(e) => setInput(e.target.value)}
         />   
       <label htmlFor="nme">
