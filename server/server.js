@@ -35,6 +35,10 @@ MongoClient.connect('mongodb://127.0.0.1:27017', { useUnifiedTopology: true })
     const factsCollection = db.collection('facts');
     const factsRouter = createRouter(factsCollection);
     app.use('/api/facts', factsRouter);
+
+    const languagesCollection = db.collection('languages');
+    const languagesRouter = createRouter(languagesCollection);
+    app.use('/api/languages', languagesRouter);
   })
   .catch(console.err);
 

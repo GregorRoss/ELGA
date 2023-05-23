@@ -21,6 +21,7 @@ const translate = require('deepl');
 const ELGAContainer = () => {
 
   const [language, setLanguage] = useState('ES');
+  const [languageList, setLanguageList] = useState({});
   const [numbers, setNumbers] = useState([]);
   const [images, setImages] = useState([]);
   const [scores, setScores] = useState([]);
@@ -53,6 +54,9 @@ const ELGAContainer = () => {
 
     getFacts()
     .then(facts => setFacts(facts));
+
+    getLanguageList()
+    .then(languageList => setLanguageList(languageList));
   }, []);
 
   useEffect(() => {
