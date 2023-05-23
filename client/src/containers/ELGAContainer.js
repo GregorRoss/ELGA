@@ -11,6 +11,7 @@ import { getPhrases } from '../services/PhrasesService';
 import { getImages } from '../services/ImagesService';
 import "../components/ELGASplash.css"
 import NumbersGuess from '../components/NumbersGuess';
+import { getScores } from '../services/ScoresService';
 
 const translate = require('deepl');
 
@@ -19,6 +20,7 @@ const ELGAContainer = () => {
   const [language, setLanguage] = useState('ES');
   const [numbers, setNumbers] = useState([]);
   const [images, setImages] = useState([]);
+  const [scores, setScores] = useState([]);
   const [phrases, setPhrases] = useState([]);
   const [click, setClick] = useState(false);
   const [clicked, setClicked] = useState(false);
@@ -27,8 +29,12 @@ const ELGAContainer = () => {
   const [phrase, setPhrase] = useState('');
   const [translatedPhrase, setTranslatedPhrase] = useState('');
   const [imageName, setImageName] = useState('')
-  const [image, setImage] = useState('');
+  const [imageSrc, setImageSrc] = useState('');
   const [translatedImage, setTranslatedImage] = useState('')
+
+
+  const [apiNum1, setApiNum1] = useState("");
+  const [apiNum2, setApiNum2] = useState("");
 
   useEffect(() => {
     getNumbers()
@@ -39,19 +45,28 @@ const ELGAContainer = () => {
 
     getPhrases()
     .then(phrases => setPhrases(phrases));
+
+    getScores()
+    .then(scores => setScores(scores));
   }, []);
 
+  useEffect(() => {
+    transNum("num1", num1)
+  }, [num1])
+
+  useEffect(() => {
+    transNum("num2", num2)
+  }, [num2])
+
   const fetchData = (text, language) => {
-    translate({
+    console.log("text", text);
+    console.log("language", language);
+    return translate({
       free_api: true,
       text: text,
       target_lang: language,
-      auth_key: process.env.REACT_APP_API_KEY,
+      auth_key:  process.env.REACT_APP_API_KEY
       // All optional parameters available in the official documentation can be defined here as well.
-    })
-    .then(result => {
-        const text = result.data.translations[0].text;
-        console.log(text);
     })
     .catch(error => {
         console.error(error)
@@ -65,28 +80,56 @@ const setRandomNumbers = (num1, num2) => {
   setNumber2(num2);
 }
 
+const transNum =(stateSelector, num) => {
+  let englishNum1 = numbers.find(element => element.number == num)
+
+
+  if (stateSelector === "num1" && englishNum1){
+  fetchData(englishNum1.word,language)
+  .then(res => setApiNum1(res.data.translations[0].text))
+  }
+  if(stateSelector === "num2" && englishNum1){
+  fetchData(englishNum1.word,language)
+  .then(res => setApiNum2(res.data.translations[0].text))
+  }
+  
+
+  
+
+  // let apiNum = fetchData(englishNum1.word,language)
+  // console.log(apiNum);
+  // setApiNum1(apiNum)
+}
+// input - num
+// const foundWord = numbers.find  - element.number === num
+// output - foundWord.word
+
+
+  // fetchData('Hello, World', 'ES');
 const setRandomPhrase = (phrase, language) => {
   setPhrase(phrase);
-  fetchData(phrase, language);
-  setTranslatedPhrase(phrase);
+  fetchData(phrase, language)
+  .then(res => setTranslatedPhrase(res.data.translations[0].text));
 };
 
 const setRandomImage = (image, language) => {
   setImageName(image.word);
-  setImage(image.image);
+  setImageSrc(image.image);
   // fetchData(image.word, language);
   setTranslatedImage(image.word);
 };
-  // fetchData('Hello, World', 'ES');
+
+
+
   return (  
     <Router>
       <NavBar handleClick={handleClick} click={click} />
       <Routes>
         <Route path='/' element={<ELGASplash handleHomeClick={handleHomeClick} clicked={clicked}/>} />
         <Route path='/home' element={<Home />} />
-        <Route path='/numbers' element={<Numbers num1={num1} num2={num2} setRandomNumbers={setRandomNumbers}/>} />
+        <Route path='/numbers' element={<Numbers num1={num1} num2={num2} num1Word={apiNum1} num2Word={apiNum2} setRandomNumbers={setRandomNumbers} transNum={transNum} apiNum1={apiNum1}/>} />
         <Route path='/numbersguess' element={<NumbersGuess />} />
-        {images.length > 0 ? <Route path='/images' element={<Images images={images} setRandomImage={setRandomImage} image={image} imageName={imageName} translatedImage={translatedImage} language={language} />} /> : null}
+        {images.length > 0 ? <Route path='/images' element={<Images images={images} setRandomImage={setRandomImage} imageSrc={imageSrc} imageName={imageName} translatedImage={translatedImage} language={language} />} /> : null}
         {phrases.length > 0 ? <Route path='/phrases' element={<Phrases phrases={phrases} setRandomPhrase={setRandomPhrase}  phrase={phrase} translatedPhrase={translatedPhrase} language={language} />} /> : null}
       </Routes>
     </Router>

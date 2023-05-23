@@ -1,9 +1,9 @@
 import React, { useEffect, useState }  from 'react';
+import "./Images.css";
 import SubmitButton from "./SubmitButton";
 import "./Games.css";
 
-const Images = ({images, setRandomImage, image, imageName, translatedImage, language}) => {
-
+const Images = ({images, setRandomImage, imageSrc, imageName, translatedImage, language}) => {
   useEffect(() => {
     getRandomImage();
   },[]);
@@ -14,6 +14,7 @@ const Images = ({images, setRandomImage, image, imageName, translatedImage, lang
     const randomImage = Math.floor(Math.random() * images.length);
     setRandomImage(images[randomImage], language);
   };
+
     return (  
 <>
       <div className="title-container">
@@ -23,9 +24,8 @@ const Images = ({images, setRandomImage, image, imageName, translatedImage, lang
           </div>
       </div>
       <div className="question-container">
-        <p className="question-text">{imageName}</p>
+        <img className="randomImage" id='random_img' src={`http://localhost:9000${imageSrc}`} alt={imageName}/>
         <form className="question-form">
-
           <input
             type="text"
             name="name"
@@ -40,7 +40,7 @@ const Images = ({images, setRandomImage, image, imageName, translatedImage, lang
           </label>
             <SubmitButton
               onClick={() => {
-                if (input === translatedImage) {
+                if (input.toLowerCase() === translatedImage.toLowerCase()) {
                   console.log('You got it right!');
                 } else {
                   console.log("That's not right!")
