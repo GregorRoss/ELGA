@@ -13,17 +13,16 @@ const Home = ({setLanguage}) => {
             <div className='language-options'>
                 <select onChange={handleLanguageSelect}>
                     <option value="" > Please select language: </option>
-                    <option value="cy">Welsh</option>
+                    <option value="id">Indoesian</option>
                     <option value="da">Danish</option>
                     <option value="de">German</option>
                     <option value="es">Spanish</option>
                     <option value="fr">French</option>
-                    <option value="gd">Gaelic</option>
                     <option value="it">Italian</option>
                     <option value="ja">Japanese</option>
                     <option value="zh">Chinese</option>
-                    <option value="zu">Zulu</option>
-                    <option value="la">Latin</option>
+                    <option value="ru">Russian</option>
+                    <option value="uk">Ukrainian</option>
 
                 </select>
             </div>

@@ -302,7 +302,7 @@ db.numbers.insertMany([
     },    {
         number: 100,
         word: "one hundred"
-    }, 
+    } 
 ]);
 
 db.phrases.insertMany([
@@ -347,7 +347,7 @@ db.phrases.insertMany([
   },
   {
     phrase: "Coding is cool"
-  },
+  }
 ]);
 
 db.images.insertMany([
@@ -393,7 +393,7 @@ db.images.insertMany([
     {
       word: "duck",
       image: "/images/duck.png"
-  },
+  }
 ]);
 
 db.facts.insertMany([
@@ -426,5 +426,49 @@ db.facts.insertMany([
   },
   {
     fact: "There are more native Spanish speakers than native English speakers in the world."
-  },
+  }
+]);
+
+db.languages.insertMany([
+    {
+        name: "Chinese",
+        code: "zh",
+        image: "/images/China.png"
+    },    {
+        name: "Danish",
+        code: "da",
+        image: "/images/danish.png"
+    },    {
+        name: "German",
+        code: "de",
+        image: "/images/germany.png"
+    },    {
+        name: "Indonesia",
+        code: "id",
+        image: "/images/Indonesia.png"
+    },    {
+        name: "French",
+        code: "fr",
+        image: "/images/france.png"
+    },    {
+        name: "Italian",
+        code: "it",
+        image: "/images/italy.png"
+    },    {
+        name: "Spanish",
+        code: "es",
+        image: "/images/spain.png"
+    },    {
+        name: "Japanese",
+        code: "ja",
+        image: "/images/Japan.png"
+    },    {
+        name: "Russian",
+        code: "ru",
+        image: "/images/russia.png"
+    },    {
+        name: "Ukrainian",
+        code: "uk",
+        image: "/images/ukraine.png"
+    }
 ]);
