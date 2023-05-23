@@ -65,6 +65,10 @@
   justify-content: center;
 }
 
+.speech-box-container, .thought-box-container {
+  max-width: 300px;
+}
+
 .thought-box {
   width: 80vw;
   height: 80vw;
@@ -254,6 +258,7 @@
     .game-container {
       margin-top: 5vw;
       flex-direction: row;
+      justify-content: space-between;
     }
 
     .delay-display {
@@ -274,14 +279,12 @@
 
     .game-title-EN {
       font-size: 2.5vw;
-      padding-bottom: 20vw;
+      padding-bottom: 30px;
     }
 
     .speech-box, .thought-box {
       width: 30vw;
       height: 30vw;
-      order: 2;
-      margin-top: -30vw;
     }
 
     .randomImage {
@@ -297,11 +300,9 @@
     #quiz-egg {
       width: 12vw;
       margin: 0;
-      order: 1;
     }
 
     .question-form {
-      order: 3;
       padding-left: 10vw;
     }
   }
