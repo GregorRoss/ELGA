@@ -16,7 +16,8 @@ const Phrases = ({phrases, setRandomPhrase, phrase, translatedPhrase, language})
     setRandomPhrase(phrases[randomIndex].phrase, language);
   };
 
-  const handleClick = () => {
+  const onSubmit = (e) => {
+    e.preventDefault();
     if (input.toLowerCase() === phrase.toLowerCase()) {
       console.log('Correct')
       getRandomIndex();
@@ -25,10 +26,6 @@ const Phrases = ({phrases, setRandomPhrase, phrase, translatedPhrase, language})
     } else {
       console.log('Wrong');
     }
-  };
-
-  const onSubmit = (e) => {
-    e.preventDefault();
   };
 
   return (
@@ -56,9 +53,7 @@ const Phrases = ({phrases, setRandomPhrase, phrase, translatedPhrase, language})
       <label htmlFor="nme">
         <span></span>
       </label>
-            <SubmitButton
-              onClick={handleClick}
-            />
+            <SubmitButton />
         </form>
       </div>
     </>
