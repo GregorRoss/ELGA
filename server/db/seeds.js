@@ -359,8 +359,8 @@ db.images.insertMany([
       image: "/images/chocolate.png"
   },
      {
-      word: "cat",
-      image: "/images/cat.png"
+      word: "dog",
+      image: "/images/dog.png"
   },
     {
       word: "computer",
@@ -369,10 +369,6 @@ db.images.insertMany([
   {
       word: "guitar",
       image: "/images/guitar.png"
-  },
-    {
-      word: "pencil",
-      image: "/images/pencil.png"
   },
     {
       word: "hamburger",

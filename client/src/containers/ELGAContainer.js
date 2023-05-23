@@ -14,6 +14,7 @@ import NumbersGuess from '../components/NumbersGuess';
 import { getScores } from '../services/ScoresService';
 import { getFacts } from "../services/FactsService";
 import Facts from "../components/Facts";
+import Resources from "../components/Resources";
 
 const translate = require('deepl');
 
@@ -119,6 +120,7 @@ const setRandomImage = (image, language) => {
         <Route path='/numbersguess' element={<NumbersGuess />} />
         {images.length > 0 ? <Route path='/images' element={<Images images={images} setRandomImage={setRandomImage} imageSrc={imageSrc} imageName={imageName} translatedImage={translatedImage} language={language} />} /> : null}
         {phrases.length > 0 ? <Route path='/phrases' element={<Phrases phrases={phrases} setRandomPhrase={setRandomPhrase}  phrase={phrase} translatedPhrase={translatedPhrase} language={language} />} /> : null}
+        <Route path='/resources' element={<Resources />} />
       </Routes>
       {facts.length > 0 ? <Facts facts={facts} /> : null} 
     </Router>
