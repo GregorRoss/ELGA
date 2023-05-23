@@ -223,3 +223,15 @@
       padding-left: 10vw;
     }
   }
+
+  .facts-paragraph {
+    font-family: 'Delius', cursive;
+    color: white;
+    text-shadow: 0 1vw 2vw black;
+}
+
+.question-text {
+  font-family: 'Delius', cursive;
+  color: white;
+  text-shadow: 0 1vw 2vw black;
+}
