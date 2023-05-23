@@ -34,8 +34,6 @@ const ELGAContainer = () => {
   const [imageSrc, setImageSrc] = useState('');
   const [translatedImage, setTranslatedImage] = useState('')
   const [facts, setFacts] = useState([])
-
-
   const [apiNum1, setApiNum1] = useState("");
   const [apiNum2, setApiNum2] = useState("");
 
@@ -113,8 +111,8 @@ const setRandomPhrase = (phrase, language) => {
 const setRandomImage = (image, language) => {
   setImageName(image.word);
   setImageSrc(image.image);
-  // fetchData(image.word, language);
-  setTranslatedImage(image.word);
+  fetchData(image.word, language)
+  .then(res => setTranslatedImage(res.data.translations[0].text));
 };
 
 
