@@ -111,8 +111,8 @@ const setRandomPhrase = (phrase, language) => {
 const setRandomImage = (image, language) => {
   setImageName(image.word);
   setImageSrc(image.image);
-  // fetchData(image.word, language);
-  setTranslatedImage(image.word);
+  fetchData(image.word, language)
+  .then(res => setTranslatedImage(res.data.translations[0].text));
 };
 
 

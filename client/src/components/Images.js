@@ -4,10 +4,10 @@ import "./Games.css";
 
 const Images = ({images, setRandomImage, imageSrc, imageName, translatedImage, language}) => {
   useEffect(() => {
-    getRandomImage();
+  
   },[]);
 
-  let roundMax = 3;
+  let roundMax = 10;
 
   const [input, setInput] = useState('');
   const [gameStatus, setGameStatus] = useState('waiting'); // 1
@@ -39,7 +39,7 @@ const Images = ({images, setRandomImage, imageSrc, imageName, translatedImage, l
 
       // function to play the round, and check it is not the end of the round.
       const playRound = () => {
-        if (roundCount < 3){
+        if (roundCount < roundMax){
             setRoundCount(roundCount + 1);
             getRandomImage();
             setInput("");
