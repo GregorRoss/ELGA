@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import NumbersGame from './NumbersGame';
-import NumbersGuess from './NumbersGuess';
 
 
 
@@ -8,7 +7,7 @@ import NumbersGuess from './NumbersGuess';
 const Numbers = ({num1, num2, setRandomNumbers, transNum, apiNum1, num1Word, num2Word}) => {
 
         let operator = "add"
-    const [rounds, setRounds] = useState();
+    const [rounds, setRounds] = useState(0);
     const [level, setLevel] = useState();
 
     const handleRoundSelect = (event) => {

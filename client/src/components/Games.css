@@ -215,7 +215,39 @@
     -webkit-transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;
     transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;
   }
+
+  .facts-paragraph {
+    font-family: 'Delius', cursive;
+    color: white;
+    text-shadow: 0 1vw 2vw black;
+}
+
+.question-text {
+  font-family: 'Delius', cursive;
+  color: white;
+  text-shadow: 0 1vw 2vw black;
+}
+
+.resources-second-heading{
+  font-family: 'Delius', cursive;
+  color: white;
+  text-shadow: 0 1vw 2vw black;
+  font-size: larger;
+}
+
+.resource-link{
+  font-family: 'Delius', cursive;
+  color: white;
+  text-shadow: 0 1vw 2vw black;
+  font-weight: bold;
+
+}
+
+.resource-egg {
+  width: 20vw;
+}
   
+  /* Below this line screens larger than 768px */
 
   @media (min-width: 768px) {
 
@@ -273,3 +305,4 @@
       padding-left: 10vw;
     }
   }
+

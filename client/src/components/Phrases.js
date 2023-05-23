@@ -16,18 +16,16 @@ const Phrases = ({phrases, setRandomPhrase, phrase, translatedPhrase, language})
     setRandomPhrase(phrases[randomIndex].phrase, language);
   };
 
-  const handleClick = () => {
+  const onSubmit = (e) => {
+    e.preventDefault();
     if (input.toLowerCase() === phrase.toLowerCase()) {
       console.log('Correct')
       getRandomIndex();
-      setScore(score + 1)
+      setScore(score + 1);
+      setInput("");
     } else {
       console.log('Wrong');
     }
-  };
-
-  const onSubmit = (e) => {
-    e.preventDefault();
   };
 
   return (
@@ -49,14 +47,13 @@ const Phrases = ({phrases, setRandomPhrase, phrase, translatedPhrase, language})
           id="nme"
           required
           autoComplete="off"
+          value={input}
           onChange={(e) => setInput(e.target.value)}
         />   
       <label htmlFor="nme">
         <span></span>
       </label>
-            <SubmitButton
-              onClick={handleClick}
-            />
+            <SubmitButton />
         </form>
       </div>
     </>

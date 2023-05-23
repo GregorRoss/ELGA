@@ -1,9 +1,9 @@
 import React from "react";
 import './SubmitButton.css'
 
-const SubmitButton = ({onClick}) => {
+const SubmitButton = () => {
   return (
-    <button className="submit-button" type="button" onClick={onClick}>
+    <button type="submit" className="submit-button">
       guess
       <svg
         width="79"

@@ -14,6 +14,7 @@ import NumbersGuess from '../components/NumbersGuess';
 import { getScores } from '../services/ScoresService';
 import { getFacts } from "../services/FactsService";
 import Facts from "../components/Facts";
+import Resources from "../components/Resources";
 
 const translate = require('deepl');
 
@@ -34,8 +35,6 @@ const ELGAContainer = () => {
   const [imageSrc, setImageSrc] = useState('');
   const [translatedImage, setTranslatedImage] = useState('')
   const [facts, setFacts] = useState([])
-
-
   const [apiNum1, setApiNum1] = useState("");
   const [apiNum2, setApiNum2] = useState("");
 
@@ -65,8 +64,6 @@ const ELGAContainer = () => {
   }, [num2])
 
   const fetchData = (text, language) => {
-    console.log("text", text);
-    console.log("language", language);
     return translate({
       free_api: true,
       text: text,
@@ -78,6 +75,7 @@ const ELGAContainer = () => {
         console.error(error)
     });
 };
+
 const handleClick = () => setClick(!click);
 const handleHomeClick = () => setClicked(!clicked)
 
@@ -89,7 +87,6 @@ const setRandomNumbers = (num1, num2) => {
 const transNum =(stateSelector, num) => {
   let englishNum1 = numbers.find(element => element.number == num)
 
-
   if (stateSelector === "num1" && englishNum1){
   fetchData(englishNum1.word,language)
   .then(res => setApiNum1(res.data.translations[0].text))
@@ -98,20 +95,8 @@ const transNum =(stateSelector, num) => {
   fetchData(englishNum1.word,language)
   .then(res => setApiNum2(res.data.translations[0].text))
   }
-  
-
-  
-
-  // let apiNum = fetchData(englishNum1.word,language)
-  // console.log(apiNum);
-  // setApiNum1(apiNum)
 }
-// input - num
-// const foundWord = numbers.find  - element.number === num
-// output - foundWord.word
 
-
-  // fetchData('Hello, World', 'ES');
 const setRandomPhrase = (phrase, language) => {
   setPhrase(phrase);
   fetchData(phrase, language)
@@ -121,22 +106,21 @@ const setRandomPhrase = (phrase, language) => {
 const setRandomImage = (image, language) => {
   setImageName(image.word);
   setImageSrc(image.image);
-  // fetchData(image.word, language);
-  setTranslatedImage(image.word);
+  fetchData(image.word, language)
+  .then(res => setTranslatedImage(res.data.translations[0].text));
 };
-
-
 
   return (  
     <Router>
       <NavBar handleClick={handleClick} click={click} />
       <Routes>
         <Route path='/' element={<ELGASplash handleHomeClick={handleHomeClick} clicked={clicked}/>} />
-        <Route path='/home' element={<Home />} />
+        <Route path='/home' element={<Home setLanguage={setLanguage}/>} />
         <Route path='/numbers' element={<Numbers num1={num1} num2={num2} num1Word={apiNum1} num2Word={apiNum2} setRandomNumbers={setRandomNumbers} transNum={transNum} apiNum1={apiNum1}/>} />
         <Route path='/numbersguess' element={<NumbersGuess />} />
         {images.length > 0 ? <Route path='/images' element={<Images images={images} setRandomImage={setRandomImage} imageSrc={imageSrc} imageName={imageName} translatedImage={translatedImage} language={language} />} /> : null}
         {phrases.length > 0 ? <Route path='/phrases' element={<Phrases phrases={phrases} setRandomPhrase={setRandomPhrase}  phrase={phrase} translatedPhrase={translatedPhrase} language={language} />} /> : null}
+        <Route path='/resources' element={<Resources />} />
       </Routes>
       {facts.length > 0 ? <Facts facts={facts} /> : null} 
     </Router>
