@@ -153,5 +153,5 @@ const NavBar = ({handleClick, click}) => {
       </div>
   )
 }
- 
+
 export default NavBar;

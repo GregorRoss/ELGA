@@ -76,6 +76,7 @@ const ELGAContainer = () => {
         console.error(error)
     });
 };
+
 const handleClick = () => setClick(!click);
 const handleHomeClick = () => setClicked(!clicked)
 
@@ -87,7 +88,6 @@ const setRandomNumbers = (num1, num2) => {
 const transNum =(stateSelector, num) => {
   let englishNum1 = numbers.find(element => element.number == num)
 
-
   if (stateSelector === "num1" && englishNum1){
   fetchData(englishNum1.word,language)
   .then(res => setApiNum1(res.data.translations[0].text))
@@ -95,13 +95,9 @@ const transNum =(stateSelector, num) => {
   if(stateSelector === "num2" && englishNum1){
   fetchData(englishNum1.word,language)
   .then(res => setApiNum2(res.data.translations[0].text))
-  }
-  
+  } 
 }
 
-
-
-  // fetchData('Hello, World', 'ES');
 const setRandomPhrase = (phrase, language) => {
   setPhrase(phrase);
   fetchData(phrase, language)
@@ -114,8 +110,6 @@ const setRandomImage = (image, language) => {
   fetchData(image.word, language)
   .then(res => setTranslatedImage(res.data.translations[0].text));
 };
-
-
 
   return (  
     <Router>

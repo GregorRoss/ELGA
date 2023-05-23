@@ -5,7 +5,7 @@ const NumbersCorrectAnswer = () => {
 
             
         </p>
-     );
+    );
 }
- 
+
 export default NumbersCorrectAnswer;
