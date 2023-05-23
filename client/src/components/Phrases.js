@@ -26,6 +26,10 @@ const Phrases = ({phrases, setRandomPhrase, phrase, translatedPhrase, language})
     }
   };
 
+  const onSubmit = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <>
     <h1 className="game-title">frases</h1>
@@ -37,7 +41,7 @@ const Phrases = ({phrases, setRandomPhrase, phrase, translatedPhrase, language})
         <div className="bounce">
           <img className="slide-in-left shadow" id='quiz-egg' src={require("../images/quiz_egg.png")} alt="polka dot easter egg"></img>
         </div>
-        <form className="question-form">
+        <form className="question-form" onSubmit={onSubmit}>
         <input
           type="text"
           name="name"
