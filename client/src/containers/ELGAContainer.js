@@ -99,8 +99,6 @@ const transNum =(stateSelector, num) => {
   .then(res => setApiNum2(res.data.translations[0].text))
   }
   
-
-  
 }
 
 
