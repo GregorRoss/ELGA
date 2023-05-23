@@ -37,7 +37,7 @@ const Phrases = ({phrases, setRandomPhrase, phrase, translatedPhrase, language})
           <p className="question-text delay-display">{translatedPhrase}</p>
         </div>
         <div className="bounce">
-          <img className="slide-in-left shadow" id='quiz-egg' src={require("../images/quiz_egg.png")} alt="polka dot easter egg"></img>
+          <img className="slide-in-left shadow quiz-egg" src={require("../images/quiz_egg.png")} alt="polka dot easter egg"></img>
         </div>
         <form className="question-form" onSubmit={onSubmit}>
         <input

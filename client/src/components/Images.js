@@ -76,7 +76,7 @@ const Images = ({images, setRandomImage, imageSrc, imageName, translatedImage, l
           <img className="randomImage" id='random_img' src={`http://localhost:9000${imageSrc}`} alt={imageName}/>
         </div>
         <div className="bounce">
-          <img className="slide-in-left shadow" id='quiz-egg' src={require("../images/quiz_egg.png")} alt="polka dot easter egg"></img>
+          <img className="slide-in-left shadow quiz-egg" src={require("../images/quiz_egg.png")} alt="polka dot easter egg"></img>
         </div>
           <form className="question-form">
             <input
