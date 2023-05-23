@@ -148,6 +148,9 @@ const NavBar = ({handleClick, click}) => {
                 <li>
                   <ItemLink onClick={handleClick} to="/phrases">Phrases</ItemLink>
                 </li>
+                <li>
+                  <ItemLink onClick={handleClick} to="/resources">Resources</ItemLink>
+                </li>
             </List>
           </Navigation>
       </div>
