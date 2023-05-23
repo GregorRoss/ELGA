@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import "./Games.css";
 
 const Facts = ({facts}) => {
 
@@ -14,7 +15,7 @@ const Facts = ({facts}) => {
     };
 
     return (
-        <p>Fun Fact:{randomFact}</p>
+        <p className='facts-paragraph'>Fun Fact: {randomFact}</p>
     )
 }
 
