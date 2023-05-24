@@ -76,6 +76,7 @@ const Images = ({
         <h1 className="game-title">¿qué es esto?</h1>
         <h2 className="game-title-EN">what is this?</h2>
       </div>
+      {gameStatus === "playing" ? (
       <div className="game-container">
         <div className="thought-box-container">
           <div className="thought-box delay-display">
@@ -108,24 +109,23 @@ const Images = ({
           <label htmlFor="nme">
             <span></span>
           </label>
-          {gameStatus === "playing" ? (
+          </form>
             <button type="button" onClick={checkGuess}>
               Guess
             </button>
-          ) : (
+                <p className="rubik-paragraph">{msg}</p>
+                <div className="score-container">
+                    <p className="rubik-paragraph score-number">{winsLosses.wins}</p>
+                    <img className="score-img" src={require("../images/checked.png")}></img>
+                    <img className="score-img" src={require("../images/error.png")}></img>
+                    <p className="rubik-paragraph score-number">{winsLosses.losses}</p>
+                </div>
+                <p>{msg}</p>
+            </div>) : (
             <button type="button" onClick={start}>
               Start
             </button>
           )}
-          <p>{msg}</p>
-          <p>
-            Score Wins: {winsLosses.wins} Lose: {winsLosses.losses}
-          </p>
-          <p>
-            this is the roundCount: {roundCount} of {roundMax}
-          </p>
-        </form>
-      </div>
     </>
   );
 };
