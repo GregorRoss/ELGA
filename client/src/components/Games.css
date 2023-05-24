@@ -70,6 +70,10 @@
   justify-content: center;
 }
 
+.speech-box-container, .thought-box-container {
+  max-width: 300px;
+}
+
 .thought-box {
   width: 80vw;
   height: 80vw;
@@ -265,6 +269,7 @@
     .game-container {
       margin-top: 5vw;
       flex-direction: row;
+      justify-content: space-between;
     }
 
     #number-game-container {
@@ -303,6 +308,14 @@
       height: 25vw;
       order: 2;
       margin-top: -18vw;
+
+      padding-bottom: 30px;
+    }
+
+    .speech-box, .thought-box {
+      width: 30vw;
+      height: 30vw;
+
     }
 
     .randomImage {
@@ -329,6 +342,7 @@
       width: 8vw;
       margin: 0 -5vw -7vw 0;
       order: 1;
+
     }
 
     .start-button {
@@ -337,7 +351,6 @@
     }
 
     .question-form {
-      order: 3;
       padding-left: 10vw;
     }
 
