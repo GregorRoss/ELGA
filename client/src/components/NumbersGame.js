@@ -78,6 +78,7 @@ const NumbersGame = ({level, rounds, num1, num2, num1Word, num2Word, setRandomNu
 // function that does the initial start to the game
 const start = () => {
     setRoundCount(0);
+    setMsg("");
     setGameStatus("playing");
     playRound();
 }
