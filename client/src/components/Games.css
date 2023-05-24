@@ -28,12 +28,15 @@
 
 .rubik-paragraph {
   font-family: "Modak";
+  font-size: 4vw;
   font-weight: 400;
   margin: 0;
   text-shadow: 0 1vw 2vw black;
 }
 
 .dropdown {
+  text-align: center;
+  font-size: 4vw;
   margin-left: 5vw;
   border: none;
   border-radius: 10vw;
@@ -41,14 +44,15 @@
 }
 
 .number-input {
-  width: 10vw;
+  font-size: 4vw;
+  text-align: center;
   border: none;
   border-radius: 10vw;
   box-shadow: 0 1vw 2vw black;
 }
 
 .start-button {
-  margin: 10vw 0 0 0;
+  margin: 5vw 0 0 0;
   padding: 0;
   width: 15vw;
   height: 10vw;
@@ -61,6 +65,7 @@
   background-repeat: no-repeat;
   background-size: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
@@ -110,7 +115,8 @@
 }
 
 .score-img {
-  width: 15vw;
+  width: 10vw;
+  margin: 0 2vw
 }
 
 .score-number {
@@ -122,6 +128,10 @@
     width: 75%;
     font-size: 5vw;
     margin: 0 0 15vw 0;
+}
+
+.calculate-p {
+  margin: 0;
 }
   
   textarea {
@@ -193,7 +203,7 @@
   textarea.question:valid + label > span {
     top: -150px;
     font-size: 22px;
-    color: pink;
+    color: #333;
   }
   
   input.question:valid + label,
@@ -227,6 +237,7 @@
 }
 
 .question-text {
+  font-size: 10vw;
   font-family: 'Delius', cursive;
   color: white;
   text-shadow: 0 1vw 2vw black;
@@ -261,6 +272,11 @@
       justify-content: space-between;
     }
 
+    #number-game-container {
+      display: flex;
+      flex-direction: column;
+    }
+
     .delay-display {
       -webkit-animation:delay-display 6s ease-out;
       -moz-animation:delay-display 6s ease-out;
@@ -274,17 +290,32 @@
     }
 
     .game-title {
+      margin-top: 1vw;
       font-size: 5vw;
     }
 
     .game-title-EN {
       font-size: 2.5vw;
+      margin-bottom: 10vw;
+    }
+
+    #dropdown-container {
+      margin-bottom: 10vw;
+    }
+
+    .speech-box, .thought-box {
+      width: 25vw;
+      height: 25vw;
+      order: 2;
+      margin-top: -18vw;
+
       padding-bottom: 30px;
     }
 
     .speech-box, .thought-box {
       width: 30vw;
       height: 30vw;
+
     }
 
     .randomImage {
@@ -292,18 +323,73 @@
       margin-bottom: 5vw;
     }
 
+    .question-container {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+
     .question-text {
-      font-size: 3vw;
+      font-size: 2.5vw;
       margin: 0 0 10vw 0;
     }
 
-    #quiz-egg {
-      width: 12vw;
+    .calculate-p {
       margin: 0;
+    }
+
+    .quiz-egg {
+      width: 8vw;
+      margin: 0 -5vw -7vw 0;
+      order: 1;
+
+    }
+
+    .start-button {
+      width: 10vw;
+      height: 6vw;
     }
 
     .question-form {
       padding-left: 10vw;
+    }
+
+    .dropdown {
+      font-size: 3vw;
+    }
+
+    .number-input {
+      width: 12vw;  
+      font-size: 3vw;
+    }
+
+    .score-img {
+      width: 4vw;
+    }
+
+    .score-number {
+      margin: 0 2vw;
+    }
+
+    .rubik-paragraph {
+      font-size: 3vw;
+    }
+
+    /* reordering flex position on numbers game page */
+
+    #quiz-egg {
+      order: 1;
+      margin-bottom: -7vw;
+    }
+
+    #number-speech-box {
+      order: 2;
+      margin-bottom: -7vw;
+    }
+
+    #number-form {
+      order: 3;
+      margin-left: 5vw;
     }
   }
 
