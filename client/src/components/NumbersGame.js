@@ -83,17 +83,17 @@ const start = () => {
 }
 
     return (
-        <div className="game-container" id="number-game-container">
+        <div className="game-container">
             {gameStatus === "playing" ? (
                 <div className="question-container">
-                    <div className="speech-box delay-display" id="number-speech-box">
+                    <div className="speech-box delay-display">
                         <p className="question-text delay-display calculate-p">calculate</p>
                         <p className="question-text delay-display">{num1Word} + {num2Word}</p>
                     </div>
                     <div className="bounce">
-                        <img className="slide-in-left shadow quiz-egg" id="quiz-egg" src={require("../images/spotted_egg.png")} alt="polka dot easter egg"></img>
+                        <img className="slide-in-left shadow quiz-egg" src={require("../images/spotted_egg.png")} alt="polka dot easter egg"></img>
                     </div>
-                    <div id="number-form">
+                    <div className="input-form delay-display">
                         <form id = "FormGuess">
                                 <input
                                     className="number-input" 
@@ -103,7 +103,6 @@ const start = () => {
                                     value={numberInput}
                                     onChange={(e) => setNumberInput(e.target.value)}
                                 />
-
                         </form>
                         <button className="start-button rubik-paragraph" type="button" onClick={checkGuess}>guess</button>
                     </div>
@@ -111,7 +110,7 @@ const start = () => {
                 ) : (<button className="start-button rubik-paragraph" type="button" onClick={start}>start</button>)}
 
                 {gameStatus === "playing" ? (
-                <div className="progress-container">
+                <div className="progress-container delay-display">
                     <p className="rubik-paragraph">{msg}</p>
                     <div className="score-container">
                         <p className="rubik-paragraph score-number">{winsLosses.wins}</p>

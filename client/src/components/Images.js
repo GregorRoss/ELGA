@@ -36,8 +36,8 @@ const Images = ({
   function getMessage(input, translatedImage) {
     const guess = input.toLowerCase();
     const result = translatedImage.toLowerCase();
-    if (guess === result) return "Awesome, Well done!";
-    if (guess !== result) return "Sorry that not correct, try the next one.";
+    if (guess === result) return "awesome, well done!";
+    if (guess !== result) return "sorry, incorrect, try another";
   }
 
   // function to play the round, and check it is not the end of the round.
@@ -47,8 +47,8 @@ const Images = ({
       getRandomImage();
       setInput("");
     } else {
-      setGameStatus("Game Over");
-      setMsg("Game Over, round completed.");
+      setGameStatus("game over");
+      setMsg("game over, round completed");
     }
   };
 
@@ -76,57 +76,66 @@ const Images = ({
         <h1 className="game-title">¿qué es esto?</h1>
         <h2 className="game-title-EN">what is this?</h2>
       </div>
-      {gameStatus === "playing" ? (
       <div className="game-container">
-        <div className="thought-box-container">
-          <div className="thought-box delay-display">
-            <img
-              className="randomImage"
-              id="random_img"
-              src={`http://localhost:9000${imageSrc}`}
-              alt={imageName}
-            />
-          </div>
-          <div className="bounce">
-            <img
-              className="slide-in-left shadow quiz-egg"
-              src={require("../images/quiz_egg.png")}
-              alt="polka dot easter egg"
-            ></img>
+      {gameStatus === "playing" ? (
+
+        <div className="question-container">
+            <div className="thought-box delay-display">
+              <img
+                className="randomImage"
+                id="random_img"
+                src={`http://localhost:9000${imageSrc}`}
+                alt={imageName}
+              />
+            </div>
+            <div className="bounce">
+              <img
+                className="slide-in-left shadow quiz-egg"
+                src={require("../images/quiz_egg.png")}
+                alt="polka dot easter egg"
+              ></img>
+            </div>
+          <div className="input-form delay-display">
+            <form className="question-form">
+              <input
+                type="text"
+                name="name"
+                className="question"
+                id="name"
+                value={input}
+                required
+                autoComplete="off"
+                onChange={(e) => setInput(e.target.value)}
+              />
+                <label htmlFor="nme">
+                  <span></span>
+                </label>
+            </form>
+              <button type="button" onClick={checkGuess}>
+                Guess
+              </button>
           </div>
         </div>
-        <form className="question-form">
-          <input
-            type="text"
-            name="name"
-            className="question"
-            id="name"
-            value={input}
-            required
-            autoComplete="off"
-            onChange={(e) => setInput(e.target.value)}
-          />
-          <label htmlFor="nme">
-            <span></span>
-          </label>
-          </form>
-            <button type="button" onClick={checkGuess}>
-              Guess
-            </button>
-                <p className="rubik-paragraph">{msg}</p>
-                <div className="score-container">
-                    <p className="rubik-paragraph score-number">{winsLosses.wins}</p>
-                    <img className="score-img" src={require("../images/checked.png")}></img>
-                    <img className="score-img" src={require("../images/error.png")}></img>
-                    <p className="rubik-paragraph score-number">{winsLosses.losses}</p>
-                </div>
-            </div>) : (
+            ) : (
             <button type="button" onClick={start}>
               Start
             </button>
           )}
+          </div>
+          {gameStatus === "playing" ? 
+          (<div className="progress-container delay-display">
+            <p className="rubik-paragraph">{msg}</p>
+            <div className="score-container">
+              <p className="rubik-paragraph score-number">{winsLosses.wins}</p>
+              <img className="score-img" src={require("../images/checked.png")}></img>
+              <img className="score-img" src={require("../images/error.png")}></img>
+              <p className="rubik-paragraph score-number">{winsLosses.losses}</p>
+            </div>
+          </div>) : (<p></p>)}
     </>
   );
 };
+
+
 
 export default Images;
