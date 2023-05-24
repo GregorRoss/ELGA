@@ -11,7 +11,6 @@ import { getPhrases } from '../services/PhrasesService';
 import { getImages } from '../services/ImagesService';
 import "../components/ELGASplash.css"
 import NumbersGuess from '../components/NumbersGuess';
-import { getScores } from '../services/ScoresService';
 import { getFacts } from "../services/FactsService";
 import Facts from "../components/Facts";
 import Resources from "../components/Resources";
@@ -23,7 +22,6 @@ const ELGAContainer = () => {
   const [language, setLanguage] = useState('ES');
   const [numbers, setNumbers] = useState([]);
   const [images, setImages] = useState([]);
-  const [scores, setScores] = useState([]);
   const [phrases, setPhrases] = useState([]);
   const [click, setClick] = useState(false);
   const [clicked, setClicked] = useState(false);
@@ -47,9 +45,6 @@ const ELGAContainer = () => {
 
     getPhrases()
     .then(phrases => setPhrases(phrases));
-
-    getScores()
-    .then(scores => setScores(scores));
 
     getFacts()
     .then(facts => setFacts(facts));

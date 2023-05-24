@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import SubmitButton from "./SubmitButton";
 import "./Games.css";
 
 const Images = ({

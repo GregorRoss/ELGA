@@ -27,10 +27,6 @@ MongoClient.connect('mongodb://127.0.0.1:27017', { useUnifiedTopology: true })
     app.get("/images/:img", (req, res) => {
       res.sendFile(path.join(__dirname, `./images/${req.params.img}`));
     });
-  
-    const scoresCollection = db.collection('scores');
-    const scoresRouter = createRouter(scoresCollection);
-    app.use('/api/scores', scoresRouter);
 
     const factsCollection = db.collection('facts');
     const factsRouter = createRouter(factsCollection);
