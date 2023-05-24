@@ -120,7 +120,6 @@ const Images = ({
                     <img className="score-img" src={require("../images/error.png")}></img>
                     <p className="rubik-paragraph score-number">{winsLosses.losses}</p>
                 </div>
-                <p>{msg}</p>
             </div>) : (
             <button type="button" onClick={start}>
               Start

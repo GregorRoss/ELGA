@@ -11,10 +11,10 @@ const Resources = () => {
     <div className="home-container">
           <h3 className='resources-second-heading'> further your learning:</h3>
           <div className='resource-link'>
-          <a href='https://www.bbc.co.uk/bitesize/subjects/z9mtsbk'><p className='grow'>Bitesize</p></a>
-          <a href='https://www.duolingo.com/course/es/en/Learn-Spanish'><p className='grow'>Duolingo</p></a>
-          <a href='https://www.babbel.com/learn-spanish'><p className='grow'>Babbel</p></a>
-          <a href='https://en.wikipedia.org/wiki/Spanish_Wikipedia'><p className='grow'>Spanish Wikipedia</p></a>
+          <a href='https://www.bbc.co.uk/bitesize/subjects/z9mtsbk' target="_blank"><p className='grow'>Bitesize</p></a>
+          <a href='https://www.duolingo.com/course/es/en/Learn-Spanish' target="_blank"><p className='grow'>Duolingo</p></a>
+          <a href='https://www.babbel.com/learn-spanish' target="_blank"><p className='grow'>Babbel</p></a>
+          <a href='https://en.wikipedia.org/wiki/Spanish_Wikipedia' target="_blank"><p className='grow'>Spanish Wikipedia</p></a>
           </div>
         </div>
         </>
