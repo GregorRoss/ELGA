@@ -304,18 +304,11 @@
     }
 
     .speech-box, .thought-box {
-      width: 25vw;
-      height: 25vw;
+      width: 23vw;
+      height: 23vw;
       order: 2;
       margin-top: -18vw;
-
       padding-bottom: 30px;
-    }
-
-    .speech-box, .thought-box {
-      width: 30vw;
-      height: 30vw;
-
     }
 
     .randomImage {
@@ -331,7 +324,7 @@
 
     .question-text {
       font-size: 2.5vw;
-      margin: 0 0 10vw 0;
+      margin: 0 0 5vw 0;
     }
 
     .calculate-p {
@@ -352,6 +345,7 @@
 
     .question-form {
       padding-left: 10vw;
+      order: 3;
     }
 
     .dropdown {
@@ -384,7 +378,6 @@
 
     #number-speech-box {
       order: 2;
-      margin-bottom: -7vw;
     }
 
     #number-form {
