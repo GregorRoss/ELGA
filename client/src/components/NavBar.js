@@ -5,8 +5,8 @@ import styled from "styled-components";
 const SpanishFlag = styled.img`
     position: absolute;
     width: 50px;
-    left: 2rem;
-    top: 1rem;
+    left: 1rem;
+    top: .5rem;
 `
 
 const COLORS = {

@@ -60,8 +60,8 @@ button {
     position: relative;
     text-decoration: none;
     transition: 0.2s;
-    margin-bottom: 10vw;
-    
+    margin-top: 2vw;
+        
     svg {
       left: -20px;
       opacity: 0.5;

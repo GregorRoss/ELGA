@@ -268,13 +268,7 @@
 
     .game-container {
       margin-top: 5vw;
-      flex-direction: row;
       justify-content: space-between;
-    }
-
-    #number-game-container {
-      display: flex;
-      flex-direction: column;
     }
 
     .delay-display {
@@ -335,7 +329,6 @@
       width: 8vw;
       margin: 0 -5vw -7vw 0;
       order: 1;
-
     }
 
     .start-button {
@@ -344,12 +337,16 @@
     }
 
     .question-form {
-      padding-left: 10vw;
       order: 3;
     }
 
     .dropdown {
       font-size: 3vw;
+    }
+
+    .input-form {
+      order: 3;
+      margin-left: 5vw;
     }
 
     .number-input {
@@ -369,20 +366,5 @@
       font-size: 3vw;
     }
 
-    /* reordering flex position on numbers game page */
-
-    #quiz-egg {
-      order: 1;
-      margin-bottom: -7vw;
-    }
-
-    #number-speech-box {
-      order: 2;
-    }
-
-    #number-form {
-      order: 3;
-      margin-left: 5vw;
-    }
   }
 
