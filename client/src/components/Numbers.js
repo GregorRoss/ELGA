@@ -34,7 +34,7 @@ const Numbers = ({num1, num2, setRandomNumbers, transNum, apiNum1, num1Word, num
                     </select>
                 </div>
             </div>
-            <div className="dropdown-container">
+            <div className="dropdown-container" id="dropdown-container">
                 <p className="rubik-paragraph">which level?</p>
                 <div className='numbers-round-options'>
                     <select className="dropdown" onChange={handleLevelSelect}>
